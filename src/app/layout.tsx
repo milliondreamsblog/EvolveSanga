@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Oswald } from "next/font/google";
+import { Inter, Oswald, Open_Sans, League_Gothic } from "next/font/google";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import "./globals.css";
@@ -12,6 +12,18 @@ const inter = Inter({
 const oswald = Oswald({
   variable: "--font-oswald",
   subsets: ["latin"],
+});
+
+const openSans = Open_Sans({
+  variable: "--font-open-sans",
+  subsets: ["latin"],
+  weight: ["300", "400", "600", "700"],
+});
+
+const leagueGothic = League_Gothic({
+  variable: "--font-league-gothic",
+  subsets: ["latin"],
+  weight: ["400"],
 });
 
 export const metadata: Metadata = {
@@ -27,7 +39,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.variable} ${oswald.variable} antialiased font-sans`}
+        className={`${inter.variable} ${oswald.variable} ${openSans.variable} ${leagueGothic.variable} antialiased font-sans`}
       >
         <Header />
         {children}

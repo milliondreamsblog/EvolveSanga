@@ -1,60 +1,100 @@
-import { Button } from "@/components/ui/button";
+import Link from "next/link";
+
+const campaigns = [
+    {
+        title: "TYARI KAL\nKI",
+        desc: "Every night, millions of Indians go to bed hungry. In a country that is moving forward rapidly, it is heartbreaking that so many children, women, and daily wage earners still sleep without a proper meal.",
+        image: "/Homepage/Rectangle.png",
+    },
+    {
+        title: "HUNGER\nFREE NIGHT",
+        desc: "Every young mind carries the potential to shape tomorrow. But for thousands of underprivileged youth in India, dreams are cut short due to lack of proper guidance, resources, and opportunities.",
+        image: "/Homepage/image.svg",
+    },
+    {
+        title: "SHIKSHA\nNA RUKE",
+        desc: "Education is the most powerful tool to break the cycle of poverty. Yet, millions of children in India are forced to drop out of school because of financial hardships, lack of resources, or family struggles.",
+        image: "/Homepage/image.png",
+    },
+];
 
 export function CampaignSection() {
-    const campaigns = [
-        {
-            title: "TYARI KAL KI",
-            desc: "Every night, millions in India go to bed hungry. In a country that is moving forward rapidly, it is heartbreaking...",
-            image: "https://images.unsplash.com/photo-1542810634-71277d95dcbb?auto=format&fit=crop&q=80&w=400&h=500"
-        },
-        {
-            title: "HUNGER FREE NIGHT",
-            desc: "Every young mind deserves the chance to shape tomorrow. But for thousands of underprivileged youth in India...",
-            image: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&q=80&w=400&h=500"
-        },
-        {
-            title: "SHIKSHA NA RUKE",
-            desc: "Education is the most powerful tool to break the cycle of poverty. Yet millions of children in India are forced...",
-            image: "https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&q=80&w=400&h=500"
-        },
-    ];
-
     return (
-        <section className="pb-24">
-            {/* Divider */}
-            <div className="w-full bg-blue-100 py-3 text-center mb-16">
-                <span className="text-blue-900 font-bold uppercase tracking-widest text-lg">LIVING</span>
-            </div>
+        <section className="relative w-full pb-20 pt-16 bg-white overflow-hidden">
+            {/* Decorative blue ellipses in background */}
+            <div className="absolute top-10 right-[-40px] w-40 h-40 md:w-56 md:h-56 rounded-full border-[6px] border-[#C8E8FF]/50" />
+            <div className="absolute top-24 right-8 w-24 h-24 md:w-32 md:h-32 rounded-full border-[5px] border-[#C8E8FF]/35" />
+            <div className="absolute bottom-10 left-[-30px] w-36 h-36 md:w-48 md:h-48 rounded-full border-[6px] border-[#C8E8FF]/45" />
+            <div className="absolute bottom-28 left-12 w-20 h-20 md:w-28 md:h-28 rounded-full border-[4px] border-[#C8E8FF]/30" />
 
-            <div className="container mx-auto px-4 md:px-12 text-center">
-                <h2 className="text-3xl md:text-4xl font-heading font-bold text-blue-900 uppercase mb-12">
+            <div className="relative w-full px-6 md:px-16 lg:px-28 text-center">
+                {/* Section Title */}
+                <h2 className="section-title mb-12">
                     Support a Cause
                 </h2>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                {/* Cards Grid */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 md:gap-10 justify-items-center">
                     {campaigns.map((camp, index) => (
-                        <div key={index} className="bg-white rounded-xl overflow-hidden shadow-lg border border-gray-100 hover:shadow-xl transition-shadow flex flex-col items-center p-4">
-                            <div className="rounded-2xl overflow-hidden w-full aspect-[4/5] relative mb-4">
+                        <div
+                            key={index}
+                            className="w-full max-w-[267px] rounded-xl bg-white flex flex-col items-center px-6 pt-6 pb-5"
+                            style={{
+                                boxShadow: "0px 0px 7px 0px #00000040",
+                            }}
+                        >
+                            {/* Image with overlay text */}
+                            <div
+                                className="relative w-[219px] h-[219px] rounded-[15px] overflow-hidden mb-4 flex-shrink-0"
+                            >
                                 <div
                                     className="w-full h-full bg-cover bg-center"
                                     style={{ backgroundImage: `url(${camp.image})` }}
-                                >
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                                    <div className="absolute bottom-4 left-4 text-white text-left">
-                                        <h3 className="font-heading font-bold text-2xl uppercase leading-none">
-                                            {camp.title.split(' ').map((word, i) => (
-                                                <span key={i} className="block">{word}</span>
-                                            ))}
-                                        </h3>
-                                    </div>
+                                />
+                                {/* Dark gradient overlay */}
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+                                {/* Title text over image */}
+                                <div className="absolute bottom-3 left-3 right-3 text-white text-left">
+                                    <h3
+                                        className="uppercase whitespace-pre-line leading-[1]"
+                                        style={{
+                                            fontFamily: "var(--font-league-gothic), sans-serif",
+                                            fontWeight: 400,
+                                            fontSize: "42px",
+                                            letterSpacing: "0%",
+                                        }}
+                                    >
+                                        {camp.title}
+                                    </h3>
                                 </div>
                             </div>
-                            <p className="text-xs text-center text-gray-500 font-sans mb-4 px-2">
+
+                            {/* Description text */}
+                            <p
+                                className="text-gray-600 mb-3 w-full"
+                                style={{
+                                    fontFamily: "var(--font-open-sans), 'Open Sans', sans-serif",
+                                    fontWeight: 600,
+                                    fontSize: "12px",
+                                    lineHeight: "160%",
+                                    textAlign: "justify",
+                                }}
+                            >
                                 {camp.desc}
                             </p>
-                            <a href="#" className="text-blue-500 font-bold text-xs uppercase hover:underline">
-                                Know more &gt;&gt;
-                            </a>
+
+                            {/* Know more link */}
+                            <Link
+                                href="#"
+                                className="self-start font-bold text-[#0077B6] hover:text-[#005a8c] transition-colors"
+                                style={{
+                                    fontFamily: "var(--font-open-sans), 'Open Sans', sans-serif",
+                                    fontWeight: 600,
+                                    fontSize: "12px",
+                                }}
+                            >
+                                Know more&gt;
+                            </Link>
                         </div>
                     ))}
                 </div>

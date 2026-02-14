@@ -1,53 +1,110 @@
-import Link from "next/link";
+"use client";
+
+import { useState, useCallback } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
+
+const SLIDES = [
+    {
+        category: "LIVING",
+        activities: [
+            { title: "FREE FOOD DISTRIBUTION", image: "/Activity/Living.svg" },
+            { title: "YOUTH WELFARE CENTERS", image: "/Activity/Living3.svg" },
+            { title: "FREE CLOTH DISTRIBUTION", image: "/Activity/Living2.svg" },
+        ],
+    },
+    {
+        category: "LOVING",
+        activities: [
+            { title: "ENVIRONMENT CARE", image: "/Living/image.png" },
+            { title: "MENTAL WELLNESS PROGRAM", image: "/Living/image-1.png" },
+            { title: "WOMEN EMPOWERMENT", image: "/Living/Rectangle 104.png" },
+        ],
+    },
+    {
+        category: "LEARNING",
+        activities: [
+            { title: "SKILLS FOR BETTER TOMORROW", image: "/Activity/learning.svg" },
+            { title: "ACCESS TO EDUCATION INITIATIVE", image: "/Activity/learning2.svg" },
+            { title: "MENTAL WELLNESS PROGRAMS", image: "/Activity/learning3.svg" },
+        ],
+    },
+];
 
 export function ActivitiesSection() {
-    const activities = [
-        { title: "FREE FOOD DISTRIBUTION", image: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&q=80&w=400&h=300" },
-        { title: "YOUTH WELFARE CENTERS", image: "https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&q=80&w=400&h=300" },
-        { title: "FREE CLOTH DISTRIBUTION", image: "https://images.unsplash.com/photo-1542810634-71277d95dcbb?auto=format&fit=crop&q=80&w=400&h=300" },
-    ];
+    const [currentSlide, setCurrentSlide] = useState(0);
+
+    const prevSlide = useCallback(() => {
+        setCurrentSlide((prev) => (prev - 1 + SLIDES.length) % SLIDES.length);
+    }, []);
+
+    const nextSlide = useCallback(() => {
+        setCurrentSlide((prev) => (prev + 1) % SLIDES.length);
+    }, []);
+
+    const slide = SLIDES[currentSlide];
 
     return (
-        <section className="py-16 bg-white text-center">
-            <div className="container mx-auto px-4 md:px-12">
-                <h2 className="text-3xl md:text-4xl font-heading font-bold text-blue-900 uppercase mb-2">
+        <div className="w-full">
+            <section className="w-full py-14 md:py-20 bg-white text-center">
+                {/* Header */}
+                <h2 className="section-title mb-2">
                     Our Activities
                 </h2>
-                <p className="text-blue-400 font-bold tracking-widest text-sm uppercase mb-12">
-                    Living · Loving · Learning
+                <p className="text-[#00BCD4] font-bold tracking-widest text-sm uppercase mb-16 md:mb-20">
+                    LIVING - LOVING - LEARNING
                 </p>
 
-                <div className="relative">
-                    {/* Slider Controls (Visual only for now) */}
-                    <button className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-12 p-2 rounded-full bg-gray-200 text-gray-500 hover:bg-gray-300">
+                {/* Slider */}
+                <div className="relative w-full px-16 md:px-24 lg:px-32">
+                    {/* Nav arrows */}
+                    <button
+                        onClick={prevSlide}
+                        className="absolute left-0 md:left-4 top-[40%] -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-[#E8E8E8] hover:bg-[#D0D0D0] text-[#555] flex items-center justify-center transition-colors shadow-md"
+                        aria-label="Previous slide"
+                    >
                         <ChevronLeft className="w-6 h-6" />
                     </button>
-                    <button className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-12 p-2 rounded-full bg-gray-200 text-gray-500 hover:bg-gray-300">
+                    <button
+                        onClick={nextSlide}
+                        className="absolute right-0 md:right-4 top-[40%] -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-[#E8E8E8] hover:bg-[#D0D0D0] text-[#555] flex items-center justify-center transition-colors shadow-md"
+                        aria-label="Next slide"
+                    >
                         <ChevronRight className="w-6 h-6" />
                     </button>
 
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        {activities.map((activity, index) => (
-                            <div key={index} className="group cursor-pointer">
-                                <div className="relative overflow-hidden aspect-[4/3] border-4 border-gray-100 mb-4">
-                                    {/* Placeholder Image */}
+                    {/* Cards grid */}
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-10 md:gap-14 lg:gap-20 justify-items-center">
+                        {slide.activities.map((activity, index) => (
+                            <div key={`${currentSlide}-${index}`} className="group cursor-pointer animate-in fade-in duration-500 flex flex-col items-center">
+                                <div
+                                    className="relative overflow-hidden rounded-lg mb-5 w-[223px] h-[222px] border-[4px] border-[#0077B6]"
+                                    style={{ background: "#D9D9D9" }}
+                                >
                                     <div
-                                        className="w-full h-full bg-gray-200 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+                                        className="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
                                         style={{
-                                            backgroundImage: `url(${activity.image})`
+                                            backgroundImage: `url(${activity.image})`,
                                         }}
-                                    ></div>
+                                    />
                                 </div>
-                                <h3 className="font-heading font-bold text-blue-900 uppercase text-lg group-hover:text-blue-600 transition-colors">
+                                <h3 className="font-heading font-bold text-[#003056] uppercase text-sm md:text-base group-hover:text-[#00BCD4] transition-colors leading-tight px-2 text-center">
                                     {activity.title}
                                 </h3>
                             </div>
                         ))}
                     </div>
                 </div>
+            </section>
+
+            {/* Bottom blue strip with category text */}
+            <div className="w-full bg-[#C8E8FF] py-4 md:py-6 text-center">
+                <h3
+                    key={currentSlide}
+                    className="section-title !text-[#003056] animate-in fade-in slide-in-from-bottom-2 duration-500"
+                >
+                    {slide.category}
+                </h3>
             </div>
-        </section>
+        </div>
     );
 }

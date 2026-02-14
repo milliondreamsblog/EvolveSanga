@@ -4,21 +4,32 @@ import Link from "next/link";
 export function MissionSection() {
     return (
         <section className="py-16 md:py-24 bg-white">
-            <div className="container mx-auto px-4 md:px-12">
+            <div className="w-full px-6 md:px-16 lg:px-24">
                 <div className="flex flex-col md:flex-row items-center gap-12">
                     {/* Left: Circular Icon/Logo */}
-                    <div className="w-full md:w-1/3 flex justify-center">
-                        <div className="relative w-48 h-48 md:w-64 md:h-64 rounded-full bg-blue-50 flex items-center justify-center p-8 shadow-inner">
-                            {/* Placeholder for the handshake logo */}
-                            <div className="w-full h-full rounded-full border-8 border-orange-400/20 flex items-center justify-center text-blue-900">
-                                <span className="text-4xl font-heading font-bold">LOGO</span>
-                            </div>
-                        </div>
+                    <div className="w-full md:w-1/4 flex justify-center flex-shrink-0">
+                        <Image
+                            src="/about/EVOLVE_final_LOGO 1.png"
+                            alt="Evolve Sangh Foundation"
+                            width={224}
+                            height={224}
+                            className="w-48 h-48 md:w-56 md:h-56 object-contain"
+                        />
                     </div>
 
                     {/* Right: Text Content */}
-                    <div className="w-full md:w-2/3 text-center md:text-left">
-                        <p className="text-gray-600 leading-relaxed mb-6 font-sans text-sm md:text-base">
+                    <div className="w-full md:w-3/4">
+                        <p
+                            className="text-gray-600 mb-6"
+                            style={{
+                                fontFamily: "'Open Sans', sans-serif",
+                                fontWeight: 400,
+                                fontSize: "20px",
+                                lineHeight: "160%",
+                                letterSpacing: "0%",
+                                textAlign: "justify",
+                            }}
+                        >
                             Evolve Sangh Foundation is a Section 8 nonprofit dedicated to uplifting
                             underprivileged youth in India. Our mission-driven programs cater to students who
                             lack basic necessities, educational resources, or emotional support. Through
@@ -31,7 +42,11 @@ export function MissionSection() {
                         </p>
                         <Link
                             href="/about-us"
-                            className="inline-block text-blue-400 hover:text-blue-600 text-sm font-semibold transition-colors"
+                            className="inline-block text-blue-400 hover:text-blue-600 font-semibold transition-colors"
+                            style={{
+                                fontFamily: "'Open Sans', sans-serif",
+                                fontSize: "16px",
+                            }}
                         >
                             read more &gt;
                         </Link>
