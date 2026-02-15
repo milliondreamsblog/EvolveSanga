@@ -64,6 +64,7 @@ export function Footer() {
                                 <li><Link href="/about-us" className="hover:text-white transition-colors">Our Project Locations</Link></li>
                                 <li><Link href="#" className="hover:text-white transition-colors">Audit Report</Link></li>
                                 <li><Link href="#" className="hover:text-white transition-colors">Our Team</Link></li>
+                                <li><Link href="/contact-us" className="hover:text-white transition-colors">Contact Us</Link></li>
                             </ul>
                         </div>
 

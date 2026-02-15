@@ -8,18 +8,18 @@ import { useState } from "react";
 
 const activitiesDropdown = {
     Living: [
-        { label: "Food Distribution", href: "#" },
-        { label: "Youth Welfare Centers", href: "#" },
+        { label: "Food Distribution", href: "/activities/free-food-drive" },
+        { label: "Youth Welfare Centers", href: "/activities/youth-welfare-centers" },
         { label: "Cloth Distribution", href: "#" },
     ],
     Learning: [
-        { label: "Access To Education Initiative", href: "#" },
-        { label: "Skill Development Program", href: "#" },
+        { label: "Access To Education Initiative", href: "/activities/access-to-education" },
+        { label: "Skill Development Program", href: "/activities/skill-development" },
         { label: "Value Education Program", href: "#" },
     ],
     Loving: [
-        { label: "Environment Care", href: "#" },
-        { label: "Mental Wellness Program", href: "#" },
+        { label: "Environment Care", href: "/activities/environment-care" },
+        { label: "Mental Wellness Program", href: "/activities/mental-wellness-program" },
         { label: "Women Empowerment", href: "#" },
     ],
 };
@@ -38,7 +38,7 @@ export function Header() {
             {/* Top Bar */}
             <div className="w-full flex justify-end px-4 md:px-12 py-2">
                 <Link
-                    href="#"
+                    href="/support-a-cause"
                     className="flex items-center justify-center gap-2 font-bold text-white uppercase tracking-wide rounded-none"
                     style={{
                         background: "#FFA500",
