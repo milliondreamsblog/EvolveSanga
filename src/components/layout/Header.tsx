@@ -31,6 +31,7 @@ const getInvolvedDropdown = [
 
 export function Header() {
     const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
     return (
         <header className="w-full flex flex-col font-sans">
@@ -159,15 +160,74 @@ export function Header() {
                     </nav>
 
                     {/* Mobile Menu Toggle */}
-                    <div className="md:hidden">
-                        <Button variant="ghost" size="icon">
+                    <div className="md:hidden flex items-center gap-4">
+                        <button className="text-[#0067A5]">
+                            <Search className="w-5 h-5" />
+                        </button>
+                        <Button variant="ghost" size="icon" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
                             <span className="sr-only">Menu</span>
-                            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                            </svg>
+                            {isMobileMenuOpen ? (
+                                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
+                            ) : (
+                                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" /></svg>
+                            )}
                         </Button>
                     </div>
                 </div>
+
+                {/* Mobile Menu Overlay */}
+                {isMobileMenuOpen && (
+                    <div className="md:hidden absolute top-full left-0 w-full bg-white border-t border-gray-100 shadow-lg py-4 px-6 flex flex-col gap-4 h-[calc(100vh-80px)] overflow-y-auto">
+                        <Link href="/" className="text-base font-bold text-slate-700 hover:text-[#0067A5]" onClick={() => setIsMobileMenuOpen(false)}>
+                            HOME
+                        </Link>
+                        <Link href="/about-us" className="text-base font-bold text-slate-700 hover:text-[#0067A5]" onClick={() => setIsMobileMenuOpen(false)}>
+                            ABOUT US
+                        </Link>
+
+                        {/* Mobile Activities */}
+                        <div className="flex flex-col gap-2">
+                            <div className="text-base font-bold text-slate-700 uppercase">Our Activities</div>
+                            <div className="pl-4 flex flex-col gap-2 border-l-2 border-slate-100">
+                                {Object.entries(activitiesDropdown).map(([category, items]) => (
+                                    <div key={category}>
+                                        <div className="text-sm font-semibold text-slate-900 mb-1">{category}</div>
+                                        {items.map(item => (
+                                            <Link key={item.label} href={item.href} className="block text-sm text-slate-500 py-1" onClick={() => setIsMobileMenuOpen(false)}>
+                                                {item.label}
+                                            </Link>
+                                        ))}
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+
+                        {/* Mobile Get Involved */}
+                        <div className="flex flex-col gap-2">
+                            <div className="text-base font-bold text-slate-700 uppercase">Get Involved</div>
+                            <div className="pl-4 flex flex-col gap-1 border-l-2 border-slate-100">
+                                {getInvolvedDropdown.map(item => (
+                                    <Link key={item.label} href={item.href} className="block text-sm text-slate-500 py-1" onClick={() => setIsMobileMenuOpen(false)}>
+                                        {item.label}
+                                    </Link>
+                                ))}
+                            </div>
+                        </div>
+
+                        <Link href="/contact-us" className="text-base font-bold text-slate-700 hover:text-[#0067A5]" onClick={() => setIsMobileMenuOpen(false)}>
+                            CONTACT US
+                        </Link>
+
+                        <Link
+                            href="#"
+                            className="flex items-center justify-center gap-2 font-bold text-white uppercase tracking-wide rounded-sm py-3 mt-4"
+                            style={{ background: "#FFA500" }}
+                            onClick={() => setIsMobileMenuOpen(false)}
+                        >
+                            SUPPORT A CAUSE
+                        </Link>
+                    </div>
+                )}
             </div>
         </header>
     );
