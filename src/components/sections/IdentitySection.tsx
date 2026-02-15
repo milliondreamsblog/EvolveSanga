@@ -12,7 +12,7 @@ export function IdentitySection() {
                 </h2>
             </div>
 
-            <div className="w-full px-6 md:px-12 lg:px-20 pb-16 md:pb-24">
+            <div className="w-full px-6 md:px-12 lg:px-20 pb-12 md:pb-24">
 
                 <div className="grid grid-cols-1 lg:grid-cols-[2fr_3fr] gap-10 items-center">
                     {/* Left: Image Collage (smaller) */}

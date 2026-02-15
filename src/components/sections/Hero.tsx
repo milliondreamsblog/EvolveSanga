@@ -21,7 +21,7 @@ export function Hero() {
     }, []);
 
     return (
-        <section className="relative w-full h-[700px] md:h-[850px] bg-gray-900 overflow-hidden">
+        <section className="relative w-full h-[500px] md:h-[850px] bg-gray-900 overflow-hidden">
             {/* Background Slider */}
             {HERO_IMAGES.map((src, index) => (
                 <div

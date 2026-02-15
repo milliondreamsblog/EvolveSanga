@@ -52,7 +52,7 @@ function ImpactStat({ value, label, description, isInView, delay = 0 }: ImpactSt
 
     return (
         <div className="flex flex-col items-start text-left">
-            <h3 className="font-heading font-bold text-white text-6xl md:text-7xl mb-2">
+            <h3 className="font-heading font-bold text-white text-5xl md:text-7xl mb-2">
                 {shouldStart ? count.toLocaleString() : "0"}+
             </h3>
             <p className="text-white/90 uppercase text-sm md:text-base font-medium max-w-[250px] leading-tight">
@@ -94,10 +94,10 @@ export function AboutImpactSection() {
     ];
 
     return (
-        <section ref={sectionRef} className="w-full bg-[#0067A5] py-16 md:py-24 text-white">
+        <section ref={sectionRef} className="w-full bg-[#0067A5] py-12 md:py-24 text-white">
             <div className="w-full px-6 md:px-12 lg:px-20">
                 {/* Section Title - White */}
-                <h2 className="font-heading text-6xl text-center uppercase mb-16 tracking-wide">
+                <h2 className="font-heading text-4xl md:text-6xl text-center uppercase mb-10 md:mb-16 tracking-wide">
                     OUR IMPACT
                 </h2>
 
