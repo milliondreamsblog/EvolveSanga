@@ -59,9 +59,9 @@ export function Footer() {
                                 ABOUT US
                             </h4>
                             <ul className="space-y-[5px] text-[12px] text-white/75">
-                                <li><Link href="#" className="hover:text-white transition-colors">Vision And Mission</Link></li>
-                                <li><Link href="#" className="hover:text-white transition-colors">Our Identity</Link></li>
-                                <li><Link href="#" className="hover:text-white transition-colors">Our Project Locations</Link></li>
+                                <li><Link href="/about-us#vision-mission" className="hover:text-white transition-colors">Vision And Mission</Link></li>
+                                <li><Link href="/about-us" className="hover:text-white transition-colors">Our Identity</Link></li>
+                                <li><Link href="/about-us" className="hover:text-white transition-colors">Our Project Locations</Link></li>
                                 <li><Link href="#" className="hover:text-white transition-colors">Audit Report</Link></li>
                                 <li><Link href="#" className="hover:text-white transition-colors">Our Team</Link></li>
                             </ul>
