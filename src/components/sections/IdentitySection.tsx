@@ -78,7 +78,7 @@ export function IdentitySection() {
                                 fontFamily: "'Open Sans', sans-serif",
                                 fontWeight: 400,
                                 fontSize: "20px",
-                                lineHeight: "100%",
+                                lineHeight: "160%",
                                 letterSpacing: "0%",
                                 textAlign: "justify",
                             }}
