@@ -17,13 +17,11 @@ export function WhatWeDo({
     return (
         <section className="w-full py-10 md:py-16 bg-white">
             <div className="container mx-auto px-4 md:px-8 lg:px-16">
-                {/* Title — centered and bold like reference */}
                 <h2 className="text-2xl md:text-3xl font-extrabold text-[#005089] uppercase tracking-wide text-center mb-8 md:mb-10">
                     {title}
                 </h2>
 
                 <div className="flex flex-col md:flex-row items-start gap-6 md:gap-10">
-                    {/* Left: Text Content */}
                     <div className="w-full md:w-3/4 order-2 md:order-1">
                         <div className="space-y-3">
                             {description.map((para, index) => (
@@ -37,10 +35,8 @@ export function WhatWeDo({
                         </div>
                     </div>
 
-                    {/* Right: Circular Image */}
                     <div className="w-full md:w-1/4 flex justify-center order-1 md:order-2">
                         <div className="w-40 h-40 md:w-44 md:h-44 lg:w-52 lg:h-52 rounded-full overflow-hidden border-4 border-[#005089] bg-gray-200 shrink-0">
-                            {/* Placeholder for image */}
                             <div className="w-full h-full flex items-center justify-center text-slate-400 text-[10px] text-center p-3 bg-gray-100">
                                 [Program Image]
                             </div>

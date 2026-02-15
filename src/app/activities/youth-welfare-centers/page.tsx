@@ -9,19 +9,13 @@ import { StoriesOfChange } from "@/components/sections/youth-welfare/StoriesOfCh
 export default function YouthWelfareCentersPage() {
     return (
         <main className="w-full bg-white font-sans text-slate-800">
-            {/* HERO SECTION */}
             <section className="relative w-full h-[400px] md:h-[500px] lg:h-[600px] bg-sky-100 overflow-hidden">
-                {/* Background Image Placeholder */}
-                {/* In a real scenario, use actual images. Using a placeholder color/pattern for now
-            as no specific image assets are provided in the prompt, but the design shows a classroom. */}
                 <div className="absolute inset-0 bg-slate-200">
-                    {/* Placeholder for the classroom image shown in design */}
                     <div className="w-full h-full flex items-center justify-center text-slate-400 bg-gray-200">
                         [Classroom Background Image]
                     </div>
                 </div>
 
-                {/* Overlay Text Box (Top Right) */}
                 <div className="absolute top-10 right-4 md:right-12 bg-white px-6 py-4 shadow-lg max-w-[300px] md:max-w-[400px]">
                     <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#00AEFF] uppercase leading-tight text-right">
                         TODAY'S YOUTH
@@ -30,7 +24,6 @@ export default function YouthWelfareCentersPage() {
                     </h1>
                 </div>
 
-                {/* Carousel Indicators (Bottom Right) */}
                 <div className="absolute bottom-6 right-6 flex gap-2">
                     <div className="w-3 h-3 rounded-full bg-white/50 cursor-pointer"></div>
                     <div className="w-3 h-3 rounded-full bg-white cursor-pointer"></div>
@@ -38,7 +31,6 @@ export default function YouthWelfareCentersPage() {
                 </div>
             </section>
 
-            {/* WHY YOUTH WELFARE CENTER SECTION */}
             <section className="container mx-auto px-4 md:px-8 lg:px-16 py-10 md:py-16">
                 <div className="text-center mb-8">
                     <h2 className="text-2xl md:text-3xl font-extrabold text-[#005089] uppercase tracking-wide">
@@ -47,22 +39,17 @@ export default function YouthWelfareCentersPage() {
                 </div>
 
                 <div className="flex flex-col md:flex-row items-start gap-8 md:gap-12">
-                    {/* Left: Image Collage */}
                     <div className="w-full md:w-2/5 flex justify-center">
                         <div className="relative w-[260px] h-[260px] md:w-[340px] md:h-[340px]">
                             <div className="absolute top-0 left-0 w-40 h-40 md:w-44 md:h-44 rounded-full border-4 border-[#87CEEB] overflow-hidden bg-gray-100 z-10">
-                                {/* Image 1 */}
                             </div>
                             <div className="absolute bottom-0 left-8 w-40 h-40 md:w-44 md:h-44 rounded-full border-4 border-[#00AEFF] overflow-hidden bg-gray-200 z-20">
-                                {/* Image 2 */}
                             </div>
                             <div className="absolute top-1/4 right-0 w-36 h-36 md:w-40 md:h-40 rounded-full border-4 border-white shadow-lg overflow-hidden bg-gray-300 z-30">
-                                {/* Image 3 */}
                             </div>
                         </div>
                     </div>
 
-                    {/* Right: Content */}
                     <div className="w-full md:w-3/5 text-justify">
                         <p className="text-xs md:text-sm text-slate-600 leading-relaxed mb-3">
                             India is home to the world&apos;s largest youth population, yet millions
@@ -93,16 +80,12 @@ export default function YouthWelfareCentersPage() {
                 </div>
             </section>
 
-            {/* OUR INTERVENTIONS SECTION */}
             <InterventionsTabs fullWidth={true} />
 
-            {/* WHAT WE DO SECTION */}
             <WhatWeDo />
 
-            {/* OUR FOCUS SECTION */}
             <OurFocus />
 
-            {/* STORIES OF CHANGE SECTION */}
             <StoriesOfChange />
         </main>
     );

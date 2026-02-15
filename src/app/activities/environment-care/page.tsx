@@ -61,7 +61,6 @@ const envFocus = [
 export default function EnvironmentCarePage() {
     return (
         <main className="w-full bg-white font-sans text-slate-800">
-            {/* HERO SECTION */}
             <section className="relative w-full h-[350px] md:h-[450px] lg:h-[550px] bg-sky-100 overflow-hidden">
                 <div className="absolute inset-0 bg-slate-200">
                     <div className="w-full h-full flex items-center justify-center text-slate-400 bg-gray-200">
@@ -69,7 +68,6 @@ export default function EnvironmentCarePage() {
                     </div>
                 </div>
 
-                {/* Overlay Text Box (Bottom Left) */}
                 <div className="absolute bottom-8 left-4 md:left-10 bg-[#00AEFF]/90 px-6 py-4 max-w-[320px] md:max-w-[420px]">
                     <p className="text-sm md:text-base text-white/90 uppercase tracking-wider font-medium">
                         ACTION FOR
@@ -80,7 +78,6 @@ export default function EnvironmentCarePage() {
                 </div>
             </section>
 
-            {/* WHY ENVIRONMENT CARE SECTION */}
             <section className="container mx-auto px-4 md:px-8 lg:px-16 py-10 md:py-14">
                 <div className="text-center mb-8">
                     <h2 className="text-2xl md:text-3xl font-extrabold text-[#005089] uppercase tracking-wide">
@@ -89,7 +86,6 @@ export default function EnvironmentCarePage() {
                 </div>
 
                 <div className="flex flex-col md:flex-row items-start gap-8 md:gap-12">
-                    {/* Left: Image Collage */}
                     <div className="w-full md:w-2/5 flex justify-center">
                         <div className="relative w-[240px] h-[240px] md:w-[300px] md:h-[300px]">
                             <div className="absolute top-0 left-0 w-36 h-36 md:w-40 md:h-40 rounded-full border-4 border-[#87CEEB] overflow-hidden bg-gray-100 z-10"></div>
@@ -98,7 +94,6 @@ export default function EnvironmentCarePage() {
                         </div>
                     </div>
 
-                    {/* Right: Content */}
                     <div className="w-full md:w-3/5 text-justify">
                         <p className="text-xs md:text-sm text-[#005089] font-semibold italic mb-2">
                             Planting Hope, Growing Futures
@@ -122,25 +117,21 @@ export default function EnvironmentCarePage() {
                 </div>
             </section>
 
-            {/* OUR INTERVENTIONS — full width */}
             <InterventionsTabs
                 items={envInterventions}
                 fullWidth={true}
             />
 
-            {/* WHAT WE DO */}
             <WhatWeDo
                 title="WHAT WE DO"
                 description={envWhatWeDo}
             />
 
-            {/* OUR FOCUS */}
             <OurFocus
                 title="OUR FOCUS"
                 items={envFocus}
             />
 
-            {/* GLIMPSES SECTION */}
             <section className="w-full py-10 md:py-14 bg-white">
                 <div className="container mx-auto px-4 md:px-8 lg:px-16">
                     <h2 className="text-2xl md:text-3xl font-extrabold text-[#005089] uppercase tracking-wide text-center mb-8">

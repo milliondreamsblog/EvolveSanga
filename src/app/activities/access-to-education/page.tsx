@@ -83,7 +83,6 @@ const educationFocus = [
 export default function AccessToEducationPage() {
     return (
         <main className="w-full bg-white font-sans text-slate-800">
-            {/* HERO SECTION */}
             <section className="relative w-full h-[350px] md:h-[450px] lg:h-[550px] bg-sky-100 overflow-hidden">
                 <div className="absolute inset-0 bg-slate-200">
                     <div className="w-full h-full flex items-center justify-center text-slate-400 bg-gray-200">
@@ -91,7 +90,6 @@ export default function AccessToEducationPage() {
                     </div>
                 </div>
 
-                {/* Overlay Text Box (Top Left) */}
                 <div className="absolute top-8 left-4 md:left-10 bg-[#00AEFF]/90 px-6 py-4 max-w-[280px] md:max-w-[380px]">
                     <h1 className="text-lg md:text-xl lg:text-2xl font-bold text-white uppercase leading-tight">
                         EDUCATION
@@ -102,7 +100,6 @@ export default function AccessToEducationPage() {
                 </div>
             </section>
 
-            {/* WHY FREE ACCESS TO EDUCATION SECTION */}
             <section className="container mx-auto px-4 md:px-8 lg:px-16 py-10 md:py-14">
                 <div className="text-center mb-8">
                     <h2 className="text-2xl md:text-3xl font-extrabold text-[#005089] uppercase tracking-wide">
@@ -111,7 +108,6 @@ export default function AccessToEducationPage() {
                 </div>
 
                 <div className="flex flex-col md:flex-row items-start gap-8 md:gap-12">
-                    {/* Left: Image Collage */}
                     <div className="w-full md:w-2/5 flex justify-center">
                         <div className="relative w-[240px] h-[240px] md:w-[300px] md:h-[300px]">
                             <div className="absolute top-0 left-0 w-36 h-36 md:w-40 md:h-40 rounded-full border-4 border-[#87CEEB] overflow-hidden bg-gray-100 z-10"></div>
@@ -120,7 +116,6 @@ export default function AccessToEducationPage() {
                         </div>
                     </div>
 
-                    {/* Right: Content */}
                     <div className="w-full md:w-3/5 text-justify">
                         <p className="text-xs md:text-sm text-slate-600 leading-relaxed mb-3">
                             Education is one of the strongest tools for breaking cycles of poverty, empowering
@@ -143,25 +138,21 @@ export default function AccessToEducationPage() {
                 </div>
             </section>
 
-            {/* OUR INTERVENTIONS — full width */}
             <InterventionsTabs
                 items={educationInterventions}
                 fullWidth={true}
             />
 
-            {/* WHAT WE DO */}
             <WhatWeDo
                 title="WHAT WE DO"
                 description={educationWhatWeDo}
             />
 
-            {/* OUR FOCUS */}
             <OurFocus
                 title="OUR FOCUS"
                 items={educationFocus}
             />
 
-            {/* GLIMPSES SECTION */}
             <section className="w-full py-10 md:py-14 bg-white">
                 <div className="container mx-auto px-4 md:px-8 lg:px-16">
                     <h2 className="text-2xl md:text-3xl font-extrabold text-[#005089] uppercase tracking-wide text-center mb-8">

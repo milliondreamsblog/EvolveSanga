@@ -8,16 +8,13 @@ interface StoryCardProps {
 export function StoryCard({ story }: StoryCardProps) {
     return (
         <div className="bg-white border border-gray-200 shadow-sm overflow-hidden flex flex-col h-full">
-            {/* Name Header */}
             <div className="bg-[#005089] px-4 py-2">
                 <h3 className="text-white font-bold text-sm md:text-base uppercase text-center tracking-wide">
                     {story.name}
                 </h3>
             </div>
 
-            {/* Card Body */}
             <div className="flex flex-row flex-1 p-4 gap-4">
-                {/* Left: Photo Placeholder */}
                 <div className="w-28 md:w-32 shrink-0 flex flex-col items-center gap-2">
                     <div className="w-24 h-28 md:w-28 md:h-32 bg-gray-200 rounded-sm overflow-hidden flex items-center justify-center">
                         <span className="text-gray-400 text-[10px] text-center px-1">
@@ -36,7 +33,6 @@ export function StoryCard({ story }: StoryCardProps) {
                     )}
                 </div>
 
-                {/* Right: Quote + Read More */}
                 <div className="flex flex-col justify-between flex-1">
                     <p className="text-xs md:text-sm text-slate-700 leading-relaxed italic">
                         {story.quote}

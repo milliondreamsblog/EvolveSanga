@@ -35,7 +35,7 @@ export function Header() {
 
     return (
         <header className="w-full flex flex-col font-sans">
-            {/* Top Bar */}
+
             <div className="w-full flex justify-end px-4 md:px-12 py-2">
                 <Link
                     href="/support-a-cause"
@@ -52,10 +52,10 @@ export function Header() {
                 </Link>
             </div>
 
-            {/* Main Navigation */}
+
             <div className="w-full bg-white border-b border-gray-100 sticky top-0 z-50">
                 <div className="container mx-auto px-4 md:px-12 py-4 flex items-center justify-between">
-                    {/* Logo */}
+
                     <Link href="/" className="flex items-center group">
                         <Image
                             src="/nav/EVOLVE_final_LOGO 1.svg"
@@ -67,9 +67,9 @@ export function Header() {
                         />
                     </Link>
 
-                    {/* Desktop Nav */}
+
                     <nav className="hidden md:flex items-center gap-8">
-                        {/* About Us — simple link */}
+
                         <Link
                             href="/about-us"
                             className="text-sm font-bold text-slate-600 hover:text-[#0067A5] uppercase tracking-wide transition-colors"
@@ -77,7 +77,7 @@ export function Header() {
                             About Us
                         </Link>
 
-                        {/* Our Activities — dropdown */}
+
                         <div
                             className="relative"
                             onMouseEnter={() => setOpenDropdown("activities")}
@@ -114,7 +114,7 @@ export function Header() {
                             )}
                         </div>
 
-                        {/* Get Involved — dropdown */}
+
                         <div
                             className="relative"
                             onMouseEnter={() => setOpenDropdown("involved")}
@@ -146,7 +146,7 @@ export function Header() {
                             )}
                         </div>
 
-                        {/* Contact Us — simple link */}
+
                         <Link
                             href="/contact-us"
                             className="text-sm font-bold text-slate-600 hover:text-[#0067A5] uppercase tracking-wide transition-colors"
@@ -159,7 +159,7 @@ export function Header() {
                         </button>
                     </nav>
 
-                    {/* Mobile Menu Toggle */}
+
                     <div className="md:hidden flex items-center gap-4">
                         <button className="text-[#0067A5]">
                             <Search className="w-5 h-5" />
@@ -175,7 +175,7 @@ export function Header() {
                     </div>
                 </div>
 
-                {/* Mobile Menu Overlay */}
+
                 {isMobileMenuOpen && (
                     <div className="md:hidden absolute top-full left-0 w-full bg-white border-t border-gray-100 shadow-lg py-4 px-6 flex flex-col gap-4 h-[calc(100vh-80px)] overflow-y-auto">
                         <Link href="/" className="text-base font-bold text-slate-700 hover:text-[#0067A5]" onClick={() => setIsMobileMenuOpen(false)}>
@@ -185,7 +185,7 @@ export function Header() {
                             ABOUT US
                         </Link>
 
-                        {/* Mobile Activities */}
+
                         <div className="flex flex-col gap-2">
                             <div className="text-base font-bold text-slate-700 uppercase">Our Activities</div>
                             <div className="pl-4 flex flex-col gap-2 border-l-2 border-slate-100">
@@ -202,7 +202,7 @@ export function Header() {
                             </div>
                         </div>
 
-                        {/* Mobile Get Involved */}
+
                         <div className="flex flex-col gap-2">
                             <div className="text-base font-bold text-slate-700 uppercase">Get Involved</div>
                             <div className="pl-4 flex flex-col gap-1 border-l-2 border-slate-100">
@@ -219,7 +219,7 @@ export function Header() {
                         </Link>
 
                         <Link
-                            href="#"
+                            href="/support-a-cause"
                             className="flex items-center justify-center gap-2 font-bold text-white uppercase tracking-wide rounded-sm py-3 mt-4"
                             style={{ background: "#FFA500" }}
                             onClick={() => setIsMobileMenuOpen(false)}

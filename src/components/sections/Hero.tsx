@@ -22,7 +22,6 @@ export function Hero() {
 
     return (
         <section className="relative w-full h-[500px] md:h-[850px] bg-gray-900 overflow-hidden">
-            {/* Background Slider */}
             {HERO_IMAGES.map((src, index) => (
                 <div
                     key={index}
@@ -39,7 +38,6 @@ export function Hero() {
                 </div>
             ))}
 
-            {/* Slider Indicators */}
             <div className="absolute bottom-8 right-8 flex gap-3 z-10">
                 {HERO_IMAGES.map((_, index) => (
                     <button

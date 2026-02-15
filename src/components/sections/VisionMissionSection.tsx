@@ -2,12 +2,10 @@ export function VisionMissionSection() {
     return (
         <section id="vision-mission" className="py-16 md:py-24 bg-white">
             <div className="w-full px-6 md:px-12 lg:px-20">
-                {/* Section Title */}
                 <h2 className="section-title mb-10 md:mb-14">
                     Vision and Mission
                 </h2>
 
-                {/* Content */}
                 <div className="max-w-8xl mx-auto">
                     <p
                         className="text-gray-700 mb-8"
@@ -24,7 +22,6 @@ export function VisionMissionSection() {
                         mission:
                     </p>
 
-                    {/* Three Pillars */}
                     <ol
                         className="space-y-4 mb-8 pl-6"
                         style={{
@@ -53,7 +50,6 @@ export function VisionMissionSection() {
                         </li>
                     </ol>
 
-                    {/* Vision Statement */}
                     <p
                         className="text-gray-700"
                         style={{

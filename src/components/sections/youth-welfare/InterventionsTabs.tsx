@@ -103,23 +103,18 @@ export function InterventionsTabs({
 }: InterventionsTabsProps) {
     const [activeTab, setActiveTab] = useState(0);
 
-    // Parse description — if it contains \n, treat each line as a bullet point
     const descriptionLines = items[activeTab].description.split("\n").filter(Boolean);
     const isBulletList = descriptionLines.length > 1;
 
     return (
         <section className={`w-full ${fullWidth ? "py-8 md:py-12" : "py-12 md:py-16"} bg-white`}>
             <div className={fullWidth ? "w-full" : "container mx-auto px-4 md:px-8 lg:px-16"}>
-                {/* Title */}
                 <h2 className={`text-2xl md:text-3xl font-extrabold text-[#005089] uppercase tracking-wide text-center ${fullWidth ? "mb-6 md:mb-8 px-4" : "mb-8 md:mb-10"}`}>
                     {title}
                 </h2>
 
-                {/* Outer blue frame wrapping tabs + content + bottom bar */}
                 <div className="border-4 border-[#0077C0] overflow-hidden">
-                    {/* Top blue bar */}
                     <div className="bg-[#0077C0] px-1 pt-1.5 md:pt-2">
-                        {/* Tabs Strip */}
                         <div className="w-full overflow-x-auto scrollbar-hide">
                             <div className={`flex ${fullWidth ? "w-full" : "min-w-max"} gap-[2px]`}>
                                 {items.map((item, index) => (
@@ -150,14 +145,11 @@ export function InterventionsTabs({
                         </div>
                     </div>
 
-                    {/* Content Area — same cream/tan as active tab to create merge effect */}
                     <div className={`w-full bg-[#fdf6e3] ${fullWidth ? "px-4 py-4 md:px-8 md:py-5" : "px-6 py-5 md:px-10 md:py-6"}`}>
                         <div className="flex flex-col sm:flex-row items-start gap-4 md:gap-6">
-                            {/* Icon */}
                             <div className="text-[#005089] shrink-0">
                                 {items[activeTab].icon}
                             </div>
-                            {/* Description — bullet list or paragraph */}
                             {isBulletList ? (
                                 <ul className="space-y-1.5">
                                     {descriptionLines.map((line, i) => (
@@ -175,7 +167,6 @@ export function InterventionsTabs({
                         </div>
                     </div>
 
-                    {/* Bottom blue bar */}
                     <div className="h-3 md:h-4 bg-[#0077C0]"></div>
                 </div>
             </div>

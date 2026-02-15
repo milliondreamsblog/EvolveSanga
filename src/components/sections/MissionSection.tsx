@@ -6,7 +6,6 @@ export function MissionSection() {
         <section className="py-16 md:py-24 bg-white">
             <div className="w-full px-6 md:px-16 lg:px-24">
                 <div className="flex flex-col md:flex-row items-center gap-12">
-                    {/* Left: Circular Icon/Logo */}
                     <div className="w-full md:w-1/4 flex justify-center flex-shrink-0">
                         <Image
                             src="/about/EVOLVE_final_LOGO 1.png"
@@ -17,7 +16,6 @@ export function MissionSection() {
                         />
                     </div>
 
-                    {/* Right: Text Content */}
                     <div className="w-full md:w-3/4">
                         <p
                             className="text-gray-600 mb-6"

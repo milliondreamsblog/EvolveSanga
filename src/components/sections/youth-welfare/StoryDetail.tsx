@@ -25,7 +25,6 @@ export function StoryDetail({
 }: StoryDetailProps) {
     return (
         <main className="w-full bg-white font-sans text-slate-800">
-            {/* Page Header */}
             <section className="bg-slate-50 py-10 md:py-14">
                 <div className="container mx-auto px-4 md:px-12 text-center">
                     <h1 className="text-2xl md:text-4xl font-bold text-[#005089] uppercase tracking-wide">
@@ -34,19 +33,15 @@ export function StoryDetail({
                 </div>
             </section>
 
-            {/* Story Content */}
             <section className="container mx-auto px-4 md:px-12 py-10 md:py-16">
                 <div className="max-w-3xl mx-auto">
-                    {/* Profile Card */}
                     <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6 mb-10 bg-[#005089] p-6 text-white">
-                        {/* Photo Placeholder */}
                         <div className="w-36 h-44 sm:w-40 sm:h-48 bg-gray-200 rounded-sm overflow-hidden shrink-0 flex items-center justify-center">
                             <span className="text-gray-400 text-xs text-center px-2">
                                 [Photo]
                             </span>
                         </div>
 
-                        {/* Quote + Info */}
                         <div className="flex-1 text-center sm:text-left">
                             <p className="text-base md:text-lg italic leading-relaxed mb-4">
                                 &ldquo;{quote}&rdquo;
@@ -61,7 +56,6 @@ export function StoryDetail({
                         </div>
                     </div>
 
-                    {/* Paragraphs */}
                     <div className="space-y-4 text-justify">
                         {paragraphs.map((para, index) => (
                             <p
@@ -73,10 +67,8 @@ export function StoryDetail({
                         ))}
                     </div>
 
-                    {/* Social Links + Donate */}
                     <div className="mt-12 pt-8 border-t border-gray-200">
                         <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
-                            {/* Social Icons */}
                             {socialLinks && (
                                 <div className="flex items-center gap-4">
                                     {socialLinks.linkedin && (
@@ -107,7 +99,6 @@ export function StoryDetail({
                                 </div>
                             )}
 
-                            {/* Donate Button */}
                             <Link
                                 href="#"
                                 className="inline-block bg-[#FFA500] text-white font-bold text-sm uppercase tracking-wider px-8 py-3 hover:bg-[#e69500] transition-colors"

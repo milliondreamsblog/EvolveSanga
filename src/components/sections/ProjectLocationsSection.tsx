@@ -16,15 +16,12 @@ export function ProjectLocationsSection() {
     return (
         <section className="py-12 md:py-24 bg-white">
             <div className="w-full px-6 md:px-12 lg:px-20">
-                {/* Section Title */}
                 <h2 className="section-title mb-10 md:mb-16">
                     OUR PROJECT LOCATIONS
                 </h2>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-start max-w-6xl mx-auto">
-                    {/* Left: Map Image */}
                     <div className="relative w-full aspect-[4/3] rounded-lg overflow-hidden shadow-lg">
-                        {/* Using an embedded map iframe for a realistic look */}
                         <iframe
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3571.123456!2d80.3319!3d26.4499!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399c379b5555555%3A0x1234567890!2sKanpur%2C+Uttar+Pradesh!5e0!3m2!1sen!2sin!4v1234567890"
                             width="100%"
@@ -37,7 +34,6 @@ export function ProjectLocationsSection() {
                         />
                     </div>
 
-                    {/* Right: Location List */}
                     <div>
                         <h3
                             className="font-bold text-[#0067A5] text-lg md:text-xl mb-6 uppercase tracking-wide"

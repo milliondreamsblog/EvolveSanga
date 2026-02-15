@@ -2,8 +2,6 @@
 
 import { useState, useEffect, useRef } from "react";
 
-// Reusing the hook logic here to be self-contained or we could extract to a utils file.
-// For speed and isolation, I'll include it here.
 function useCountUp(target: number, duration: number = 2000, startCounting: boolean = false) {
     const [count, setCount] = useState(0);
 
@@ -96,15 +94,12 @@ export function AboutImpactSection() {
     return (
         <section ref={sectionRef} className="w-full bg-[#0067A5] py-12 md:py-24 text-white">
             <div className="w-full px-6 md:px-12 lg:px-20">
-                {/* Section Title - White */}
                 <h2 className="font-heading text-4xl md:text-6xl text-center uppercase mb-10 md:mb-16 tracking-wide">
                     OUR IMPACT
                 </h2>
 
-                {/* Divider Line similar to screenshot */}
                 <div className="w-full h-px bg-white/40 mb-16 mx-auto max-w-6xl" />
 
-                {/* Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-16 gap-x-8 max-w-6xl mx-auto">
                     {stats.map((stat, index) => (
                         <ImpactStat

@@ -36,14 +36,11 @@ export function StoriesOfChange({
     return (
         <section className="w-full py-12 md:py-20 bg-white">
             <div className="container mx-auto px-4 md:px-12">
-                {/* Title */}
                 <h2 className="text-2xl md:text-4xl font-bold text-[#005089] uppercase tracking-wide text-center mb-10 md:mb-14">
                     {title}
                 </h2>
 
-                {/* Carousel Container */}
                 <div className="relative">
-                    {/* Prev Arrow */}
                     {canPrev && (
                         <button
                             onClick={handlePrev}
@@ -56,14 +53,12 @@ export function StoriesOfChange({
                         </button>
                     )}
 
-                    {/* Cards Grid */}
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                         {displayed.map((story) => (
                             <StoryCard key={story.id} story={story} />
                         ))}
                     </div>
 
-                    {/* Next Arrow */}
                     {canNext && (
                         <button
                             onClick={handleNext}
@@ -77,7 +72,6 @@ export function StoriesOfChange({
                     )}
                 </div>
 
-                {/* View More Button */}
                 <div className="flex justify-center mt-10">
                     <Link
                         href={viewMoreHref}

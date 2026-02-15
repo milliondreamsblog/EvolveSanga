@@ -23,7 +23,6 @@ export function OurFocus({
 
     return (
         <section className="w-full">
-            {/* Title Bar — dark blue strip matching reference exactly */}
             <div className="w-full bg-[#005089] py-3 md:py-4">
                 <div className="container mx-auto px-4 md:px-8 lg:px-16">
                     <h2 className="text-xl md:text-2xl font-extrabold text-white uppercase tracking-wider text-center">
@@ -32,10 +31,8 @@ export function OurFocus({
                 </div>
             </div>
 
-            {/* Content — white background with blue text to match reference */}
             <div className="container mx-auto px-4 md:px-8 lg:px-16 py-6 md:py-10 bg-white">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-3">
-                    {/* Left Column */}
                     <ul className="space-y-2.5">
                         {leftItems.map((item, index) => (
                             <li
@@ -48,7 +45,6 @@ export function OurFocus({
                         ))}
                     </ul>
 
-                    {/* Right Column */}
                     <ul className="space-y-2.5">
                         {rightItems.map((item, index) => (
                             <li

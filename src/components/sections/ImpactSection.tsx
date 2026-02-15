@@ -15,7 +15,6 @@ function useCountUp(target: number, duration: number = 2000, startCounting: bool
             if (!startTime) startTime = timestamp;
             const progress = Math.min((timestamp - startTime) / duration, 1);
 
-            // Ease-out cubic for a satisfying deceleration
             const eased = 1 - Math.pow(1 - progress, 3);
             setCount(Math.floor(eased * target));
 
@@ -52,16 +51,13 @@ function StatCard({ numericValue, suffix, label, sub, startCounting, delay }: St
 
     return (
         <div className="flex flex-col items-center group">
-            {/* Number and Suffix - Dark Navy Blue */}
             <h3 className="text-5xl md:text-7xl font-heading font-bold text-[#003056] mb-1 tabular-nums transition-transform duration-300 group-hover:scale-105">
                 {shouldStart ? count.toLocaleString() : "0"}
                 <span>{suffix}</span>
             </h3>
-            {/* Label - Cyan/Light Blue */}
             <p className="text-[#00BCD4] font-bold uppercase tracking-widest text-sm md:text-base mb-2">
                 {label}
             </p>
-            {/* Subtext - Gray */}
             <p className="text-gray-500 text-[10px] md:text-xs max-w-[180px] uppercase font-medium leading-tight">
                 {sub}
             </p>
@@ -100,15 +96,11 @@ export function ImpactSection() {
 
     return (
         <div ref={sectionRef} className="w-full">
-            {/* Top light blue strip */}
             <div className="w-full h-6 md:h-10 bg-[#C8E8FF]" />
 
-            {/* Main content area */}
             <section className="relative w-full py-14 md:py-20 bg-white overflow-hidden">
-                {/* Decorative circles — right side cluster */}
                 <div className="absolute -top-4 right-6 md:right-16 w-28 h-28 md:w-36 md:h-36 rounded-full border-[5px] border-[#C8E8FF]/60" />
                 <div className="absolute top-8 right-16 md:right-36 w-16 h-16 md:w-24 md:h-24 rounded-full border-[4px] border-[#C8E8FF]/40" />
-                {/* Decorative circles — left side cluster */}
                 <div className="absolute -bottom-6 -left-6 w-32 h-32 md:w-44 md:h-44 rounded-full border-[6px] border-[#C8E8FF]/50" />
                 <div className="absolute bottom-10 left-6 w-20 h-20 md:w-24 md:h-24 rounded-full border-[4px] border-[#C8E8FF]/35" />
 
@@ -129,7 +121,6 @@ export function ImpactSection() {
                 </div>
             </section>
 
-            {/* Bottom light blue strip */}
             <div className="w-full h-6 md:h-10 bg-[#C8E8FF]" />
         </div>
     );

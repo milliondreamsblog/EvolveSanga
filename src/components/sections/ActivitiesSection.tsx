@@ -46,7 +46,6 @@ export function ActivitiesSection() {
     return (
         <div className="w-full">
             <section className="w-full py-14 md:py-20 bg-white text-center">
-                {/* Header */}
                 <h2 className="section-title mb-2">
                     Our Activities
                 </h2>
@@ -54,9 +53,7 @@ export function ActivitiesSection() {
                     LIVING - LOVING - LEARNING
                 </p>
 
-                {/* Slider */}
                 <div className="relative w-full px-16 md:px-24 lg:px-32">
-                    {/* Nav arrows */}
                     <button
                         onClick={prevSlide}
                         className="absolute left-0 md:left-4 top-[40%] -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-[#E8E8E8] hover:bg-[#D0D0D0] text-[#555] flex items-center justify-center transition-colors shadow-md"
@@ -72,7 +69,6 @@ export function ActivitiesSection() {
                         <ChevronRight className="w-6 h-6" />
                     </button>
 
-                    {/* Cards grid */}
                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-10 md:gap-14 lg:gap-20 justify-items-center">
                         {slide.activities.map((activity, index) => (
                             <div key={`${currentSlide}-${index}`} className="group cursor-pointer animate-in fade-in duration-500 flex flex-col items-center">
@@ -96,7 +92,6 @@ export function ActivitiesSection() {
                 </div>
             </section>
 
-            {/* Bottom blue strip with category text */}
             <div className="w-full bg-[#C8E8FF] py-4 md:py-6 text-center">
                 <h3
                     key={currentSlide}

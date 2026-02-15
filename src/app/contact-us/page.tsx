@@ -19,7 +19,6 @@ export default function ContactUsPage() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission logic here
     console.log("Form submitted:", formData);
     alert("Thank you for contacting us!");
     setFormData({ name: "", phone: "", email: "", message: "" });
@@ -27,7 +26,6 @@ export default function ContactUsPage() {
 
   return (
     <main className="w-full bg-white font-sans text-slate-800">
-      {/* Page Title Section/Header */}
       <section className="bg-slate-50 py-12 md:py-16">
         <div className="container mx-auto px-4 md:px-12 text-center">
             <h1 className="text-3xl md:text-5xl font-bold text-[#0067A5] uppercase tracking-wide">
@@ -39,10 +37,8 @@ export default function ContactUsPage() {
       <div className="container mx-auto px-4 md:px-12 py-12 md:py-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24">
           
-          {/* Left Column: Contact Info */}
           <div className="space-y-12">
             
-            {/* Corporate Partnerships */}
             <div>
               <h2 className="text-xl font-bold text-slate-900 uppercase mb-3">
                 For Corporate Partnerships
@@ -55,7 +51,6 @@ export default function ContactUsPage() {
               </div>
             </div>
 
-            {/* Donation Queries */}
             <div>
               <h2 className="text-xl font-bold text-slate-900 uppercase mb-3">
                 Donation Related Queries
@@ -70,7 +65,6 @@ export default function ContactUsPage() {
               </div>
             </div>
 
-            {/* Visit Us Here */}
             <div>
               <h2 className="text-xl font-bold text-slate-900 uppercase mb-4">
                 Visit Us Here
@@ -97,7 +91,6 @@ export default function ContactUsPage() {
 
           </div>
 
-          {/* Right Column: Helpdesk Form */}
           <div>
             <div className="mb-8">
                 <h2 className="text-xl font-bold text-slate-900 uppercase mb-3">
@@ -110,7 +103,6 @@ export default function ContactUsPage() {
 
             <form onSubmit={handleSubmit} className="space-y-6">
                 
-                {/* Name */}
                 <div className="space-y-2">
                     <label htmlFor="name" className="text-sm font-medium text-slate-500">
                         Name <span className="text-red-500">*</span>
@@ -127,7 +119,6 @@ export default function ContactUsPage() {
                     />
                 </div>
 
-                {/* Phone & Email Row */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="space-y-2">
                         <label htmlFor="phone" className="text-sm font-medium text-slate-500">
@@ -161,7 +152,6 @@ export default function ContactUsPage() {
                     </div>
                 </div>
 
-                {/* Message */}
                 <div className="space-y-2">
                     <label htmlFor="message" className="text-sm font-medium text-slate-500">
                         Message <span className="text-red-500">*</span>
@@ -178,7 +168,6 @@ export default function ContactUsPage() {
                     />
                 </div>
 
-                {/* Captcha Placeholder */}
                 <div className="w-full h-[78px] bg-[#f9f9f9] border border-[#d3d3d3] rounded-[3px] flex items-center justify-between px-3 shadow-sm max-w-[304px]">
                     <div className="flex items-center gap-3">
                         <div className="w-[30px] h-[30px] border-2 border-[#c1c1c1] rounded-[2px] bg-white"></div>
@@ -193,7 +182,6 @@ export default function ContactUsPage() {
                     </div>
                 </div>
 
-                {/* Submit Button */}
                 <Button
                     type="submit"
                     className="w-full bg-black hover:bg-slate-800 text-white font-bold py-6 rounded-sm uppercase tracking-wider text-sm transition-all"

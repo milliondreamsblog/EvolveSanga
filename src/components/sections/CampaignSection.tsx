@@ -21,19 +21,16 @@ const campaigns = [
 export function CampaignSection() {
     return (
         <section className="relative w-full pb-20 pt-16 bg-white overflow-hidden">
-            {/* Decorative blue ellipses in background */}
             <div className="absolute top-10 right-[-40px] w-40 h-40 md:w-56 md:h-56 rounded-full border-[6px] border-[#C8E8FF]/50" />
             <div className="absolute top-24 right-8 w-24 h-24 md:w-32 md:h-32 rounded-full border-[5px] border-[#C8E8FF]/35" />
             <div className="absolute bottom-10 left-[-30px] w-36 h-36 md:w-48 md:h-48 rounded-full border-[6px] border-[#C8E8FF]/45" />
             <div className="absolute bottom-28 left-12 w-20 h-20 md:w-28 md:h-28 rounded-full border-[4px] border-[#C8E8FF]/30" />
 
             <div className="relative w-full px-6 md:px-16 lg:px-28 text-center">
-                {/* Section Title */}
                 <h2 className="section-title mb-12">
                     Support a Cause
                 </h2>
 
-                {/* Cards Grid */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 md:gap-10 justify-items-center">
                     {campaigns.map((camp, index) => (
                         <div
@@ -43,7 +40,6 @@ export function CampaignSection() {
                                 boxShadow: "0px 0px 7px 0px #00000040",
                             }}
                         >
-                            {/* Image with overlay text */}
                             <div
                                 className="relative w-[219px] h-[219px] rounded-[15px] overflow-hidden mb-4 flex-shrink-0"
                             >
@@ -51,9 +47,7 @@ export function CampaignSection() {
                                     className="w-full h-full bg-cover bg-center"
                                     style={{ backgroundImage: `url(${camp.image})` }}
                                 />
-                                {/* Dark gradient overlay */}
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
-                                {/* Title text over image */}
                                 <div className="absolute bottom-3 left-3 right-3 text-white text-left">
                                     <h3
                                         className="uppercase whitespace-pre-line leading-[1]"
@@ -69,7 +63,6 @@ export function CampaignSection() {
                                 </div>
                             </div>
 
-                            {/* Description text */}
                             <p
                                 className="text-gray-600 mb-3 w-full"
                                 style={{
@@ -83,7 +76,6 @@ export function CampaignSection() {
                                 {camp.desc}
                             </p>
 
-                            {/* Know more link */}
                             <Link
                                 href="#"
                                 className="self-start font-bold text-[#0077B6] hover:text-[#005a8c] transition-colors"
