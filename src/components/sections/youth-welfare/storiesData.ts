@@ -6,6 +6,7 @@ export interface StoryData {
     quote: string;
     achievement?: string;
     achievement2?: string;
+    image?: string;
 }
 
 export const storiesData: StoryData[] = storiesJson.map((s) => ({
@@ -14,4 +15,5 @@ export const storiesData: StoryData[] = storiesJson.map((s) => ({
     quote: s.quote,
     achievement: s.achievement || undefined,
     achievement2: s.achievement2 || undefined,
+    image: (s as any).image || undefined,
 }));

@@ -15,42 +15,12 @@ export function IdentitySection() {
 
                 <div className="grid grid-cols-1 lg:grid-cols-[2fr_3fr] gap-10 items-center">
                     <div className="relative w-full h-[300px] md:h-[380px]">
-                        <div className="absolute top-0 left-0 w-[60%] h-[55%] overflow-hidden rounded-sm shadow-md z-10">
-                            <Image
-                                src="/Hero/Group 18.svg"
-                                alt="Volunteers working"
-                                fill
-                                className="object-cover"
-                            />
-                        </div>
-
-                        <div className="absolute bottom-0 left-[5%] w-[45%] h-[40%] overflow-hidden rounded-sm shadow-md z-20">
-                            <Image
-                                src="/Hero/Group 19.svg"
-                                alt="Community service"
-                                fill
-                                className="object-cover"
-                            />
-                        </div>
-
-                        <div className="absolute top-[10%] right-0 w-[45%] h-[80%] overflow-hidden rounded-sm shadow-md z-0">
-                            <Image
-                                src="/Hero/Group 17.svg"
-                                alt="Group activity"
-                                fill
-                                className="object-cover"
-                            />
-                        </div>
-
-                        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-24 h-24 md:w-32 md:h-32 bg-white rounded-full flex items-center justify-center shadow-xl z-30 p-3">
-                            <Image
-                                src="/about/EVOLVE_final_LOGO 1.png"
-                                alt="Evolve Logo"
-                                width={120}
-                                height={120}
-                                className="object-contain"
-                            />
-                        </div>
+                        <Image
+                            src="/About/OurIdentity.svg"
+                            alt="Our Identity"
+                            fill
+                            className="object-contain"
+                        />
                     </div>
 
                     <div>

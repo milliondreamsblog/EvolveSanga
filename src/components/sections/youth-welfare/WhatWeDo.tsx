@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 interface WhatWeDoProps {
     title?: string;
     description?: string[];
@@ -36,10 +38,13 @@ export function WhatWeDo({
                     </div>
 
                     <div className="w-full md:w-1/4 flex justify-center order-1 md:order-2">
-                        <div className="w-40 h-40 md:w-44 md:h-44 lg:w-52 lg:h-52 rounded-full overflow-hidden border-4 border-[#005089] bg-gray-200 shrink-0">
-                            <div className="w-full h-full flex items-center justify-center text-slate-400 text-[10px] text-center p-3 bg-gray-100">
-                                [Program Image]
-                            </div>
+                        <div className="relative w-40 h-40 md:w-44 md:h-44 lg:w-52 lg:h-52 rounded-full overflow-hidden border-4 border-[#005089] bg-gray-200 shrink-0">
+                            <Image
+                                src="/YouthWellfare/WhatweDo.svg"
+                                alt={imageAlt}
+                                fill
+                                className="object-cover"
+                            />
                         </div>
                     </div>
                 </div>

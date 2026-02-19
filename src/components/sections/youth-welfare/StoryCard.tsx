@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { StoryData } from "./storiesData";
 
 interface StoryCardProps {
@@ -16,10 +17,19 @@ export function StoryCard({ story }: StoryCardProps) {
 
             <div className="flex flex-row flex-1 p-4 gap-4">
                 <div className="w-28 md:w-32 shrink-0 flex flex-col items-center gap-2">
-                    <div className="w-24 h-28 md:w-28 md:h-32 bg-gray-200 rounded-sm overflow-hidden flex items-center justify-center">
-                        <span className="text-gray-400 text-[10px] text-center px-1">
-                            [Photo]
-                        </span>
+                    <div className="relative w-24 h-28 md:w-28 md:h-32 bg-gray-200 rounded-sm overflow-hidden flex items-center justify-center">
+                        {story.image ? (
+                            <Image
+                                src={story.image}
+                                alt={story.name}
+                                fill
+                                className="object-cover"
+                            />
+                        ) : (
+                            <span className="text-gray-400 text-[10px] text-center px-1">
+                                [Photo]
+                            </span>
+                        )}
                     </div>
                     {story.achievement && (
                         <span className="text-[9px] md:text-[10px] font-semibold text-slate-500 text-center leading-tight">

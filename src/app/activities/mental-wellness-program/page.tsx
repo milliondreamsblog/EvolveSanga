@@ -3,6 +3,7 @@
 import { InterventionsTabs, InterventionItem } from "@/components/sections/youth-welfare/InterventionsTabs";
 import { WhatWeDo } from "@/components/sections/youth-welfare/WhatWeDo";
 import { OurFocus } from "@/components/sections/youth-welfare/OurFocus";
+import Image from "next/image";
 
 /* ── Mental-wellness-specific intervention tabs ── */
 const mentalWellnessInterventions: InterventionItem[] = [
@@ -80,24 +81,12 @@ const mentalWellnessFocus = [
     "Empower young minds to lead healthier, more confident lives",
 ];
 
+import { MentalWellnessSlider } from "@/components/sections/mental-wellness/MentalWellnessSlider";
+
 export default function MentalWellnessProgramPage() {
     return (
         <main className="w-full bg-white font-sans text-slate-800">
-            <section className="relative w-full h-[350px] md:h-[450px] lg:h-[550px] bg-sky-100 overflow-hidden">
-                <div className="absolute inset-0 bg-slate-200">
-                    <div className="w-full h-full flex items-center justify-center text-slate-400 bg-gray-200">
-                        [Group Photo Background Image]
-                    </div>
-                </div>
-
-                <div className="absolute top-8 left-4 md:left-10 bg-[#00AEFF]/90 px-6 py-4 max-w-[280px] md:max-w-[380px]">
-                    <h1 className="text-xl md:text-2xl lg:text-3xl font-bold text-white uppercase leading-tight">
-                        EMPOWERING MINDS
-                        <br />
-                        <span className="text-white">TRANSFORMING FUTURES</span>
-                    </h1>
-                </div>
-            </section>
+            <MentalWellnessSlider />
 
             <section className="container mx-auto px-4 md:px-8 lg:px-16 py-10 md:py-14">
                 <div className="text-center mb-8">
@@ -109,9 +98,15 @@ export default function MentalWellnessProgramPage() {
                 <div className="flex flex-col md:flex-row items-start gap-8 md:gap-12">
                     <div className="w-full md:w-2/5 flex justify-center">
                         <div className="relative w-[240px] h-[240px] md:w-[300px] md:h-[300px]">
-                            <div className="absolute top-0 left-0 w-36 h-36 md:w-40 md:h-40 rounded-full border-4 border-[#87CEEB] overflow-hidden bg-gray-100 z-10"></div>
-                            <div className="absolute bottom-0 left-6 w-36 h-36 md:w-40 md:h-40 rounded-full border-4 border-[#00AEFF] overflow-hidden bg-gray-200 z-20"></div>
-                            <div className="absolute top-1/4 right-0 w-32 h-32 md:w-36 md:h-36 rounded-full border-4 border-white shadow-lg overflow-hidden bg-gray-300 z-30"></div>
+                            <div className="absolute top-0 left-0 w-36 h-36 md:w-40 md:h-40 rounded-full border-4 border-[#87CEEB] overflow-hidden bg-gray-100 z-10">
+                                <Image src="/MentalWellness/circle1.png" alt="Mental Wellness 1" fill className="object-cover" />
+                            </div>
+                            <div className="absolute bottom-0 left-6 w-36 h-36 md:w-40 md:h-40 rounded-full border-4 border-[#00AEFF] overflow-hidden bg-gray-200 z-20">
+                                <Image src="/MentalWellness/cirlce2.png" alt="Mental Wellness 2" fill className="object-cover" />
+                            </div>
+                            <div className="absolute top-1/4 right-0 w-32 h-32 md:w-36 md:h-36 rounded-full border-4 border-white shadow-lg overflow-hidden bg-gray-300 z-30">
+                                <Image src="/MentalWellness/circle3.png" alt="Mental Wellness 3" fill className="object-cover" />
+                            </div>
                         </div>
                     </div>
 

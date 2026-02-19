@@ -5,7 +5,7 @@ export function AboutHero() {
         <section className="relative w-full">
             <div className="relative w-full h-[400px] md:h-[700px] lg:h-[800px] overflow-hidden">
                 <Image
-                    src="/Hero/Group 20.svg"
+                    src="/About/Hero.svg"
                     alt="Evolve Sangh Foundation — Youth Empowerment"
                     fill
                     className="object-cover object-center"
