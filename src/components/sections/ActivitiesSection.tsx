@@ -7,8 +7,8 @@ const SLIDES = [
     {
         category: "LIVING",
         activities: [
-            { title: "FREE FOOD DISTRIBUTION", image: "/Activity/Living.svg" },
-            { title: "YOUTH WELFARE CENTERS", image: "/Activity/Living3.svg" },
+            { title: "FREE FOOD DISTRIBUTION", image: "/Activity/food-distribution.jpg" },
+            { title: "YOUTH WELFARE CENTERS", image: "/Activity/youth-welfare-center.jpg" },
             { title: "FREE CLOTH DISTRIBUTION", image: "/Activity/Living2.svg" },
         ],
     },
@@ -23,9 +23,9 @@ const SLIDES = [
     {
         category: "LEARNING",
         activities: [
-            { title: "SKILLS FOR BETTER TOMORROW", image: "/Activity/learning.svg" },
-            { title: "ACCESS TO EDUCATION INITIATIVE", image: "/Activity/learning2.svg" },
-            { title: "MENTAL WELLNESS PROGRAMS", image: "/Activity/learning3.svg" },
+            { title: "SKILLS FOR BETTER TOMORROW", image: "/AccessToEducation/WhatWeDo.svg" },
+            { title: "ACCESS TO EDUCATION INITIATIVE", image: "/AccessToEducation/Slider.svg" },
+            { title: "MENTAL WELLNESS PROGRAMS", image: "/MentalWellness/Slider.png" },
         ],
     },
 ];

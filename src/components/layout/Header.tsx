@@ -25,8 +25,8 @@ const activitiesDropdown = {
 };
 
 const getInvolvedDropdown = [
-    { label: "Corporate Partnership", href: "#" },
-    { label: "Volunteers & Internships", href: "#" },
+    { label: "Corporate Partnership", href: "/join-us" },
+    { label: "Volunteers & Internships", href: "/join-us" },
 ];
 
 export function Header() {

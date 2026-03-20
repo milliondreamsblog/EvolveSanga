@@ -4,10 +4,11 @@ import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 
 const HERO_IMAGES = [
+    "/Homepage/hero-bg.jpg",
+    "/Homepage/hero-bg-2.jpg",
     "/Hero/Group 16.svg",
     "/Hero/Group 17.svg",
     "/Hero/Group 18.svg",
-    "/Hero/Group 19.svg",
 ];
 
 export function Hero() {

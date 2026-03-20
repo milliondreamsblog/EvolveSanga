@@ -62,10 +62,8 @@ export default function EnvironmentCarePage() {
     return (
         <main className="w-full bg-white font-sans text-slate-800">
             <section className="relative w-full h-[350px] md:h-[450px] lg:h-[550px] bg-sky-100 overflow-hidden">
-                <div className="absolute inset-0 bg-slate-200">
-                    <div className="w-full h-full flex items-center justify-center text-slate-400 bg-gray-200">
-                        [Tree Plantation Background Image]
-                    </div>
+                <div className="absolute inset-0">
+                    <img src="/Living/image.png" alt="Environment Care" className="w-full h-full object-cover" />
                 </div>
 
                 <div className="absolute bottom-8 left-4 md:left-10 bg-[#00AEFF]/90 px-6 py-4 max-w-[320px] md:max-w-[420px]">
@@ -88,9 +86,9 @@ export default function EnvironmentCarePage() {
                 <div className="flex flex-col md:flex-row items-start gap-8 md:gap-12">
                     <div className="w-full md:w-2/5 flex justify-center">
                         <div className="relative w-[240px] h-[240px] md:w-[300px] md:h-[300px]">
-                            <div className="absolute top-0 left-0 w-36 h-36 md:w-40 md:h-40 rounded-full border-4 border-[#87CEEB] overflow-hidden bg-gray-100 z-10"></div>
-                            <div className="absolute bottom-0 left-6 w-36 h-36 md:w-40 md:h-40 rounded-full border-4 border-[#00AEFF] overflow-hidden bg-gray-200 z-20"></div>
-                            <div className="absolute top-1/4 right-0 w-32 h-32 md:w-36 md:h-36 rounded-full border-4 border-white shadow-lg overflow-hidden bg-gray-300 z-30"></div>
+                            <div className="absolute top-0 left-0 w-36 h-36 md:w-40 md:h-40 rounded-full border-4 border-[#87CEEB] overflow-hidden bg-gray-100 z-10"><img src="/Living/image.png" alt="Environment Care" className="w-full h-full object-cover" /></div>
+                            <div className="absolute bottom-0 left-6 w-36 h-36 md:w-40 md:h-40 rounded-full border-4 border-[#00AEFF] overflow-hidden bg-gray-200 z-20"><img src="/Living/image-1.png" alt="Environment Care" className="w-full h-full object-cover" /></div>
+                            <div className="absolute top-1/4 right-0 w-32 h-32 md:w-36 md:h-36 rounded-full border-4 border-white shadow-lg overflow-hidden bg-gray-300 z-30"><img src="/Living/Rectangle 104.png" alt="Environment Care" className="w-full h-full object-cover" /></div>
                         </div>
                     </div>
 
@@ -138,9 +136,14 @@ export default function EnvironmentCarePage() {
                         GLIMPSES
                     </h2>
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
-                        {[1, 2, 3, 4].map((i) => (
+                        {[
+                            "/Living/image.png",
+                            "/Living/image-1.png",
+                            "/Living/Rectangle 104.png",
+                            "/Living/image.png",
+                        ].map((src, i) => (
                             <div key={i} className="aspect-[4/3] bg-gray-200 rounded-sm overflow-hidden flex items-center justify-center">
-                                <span className="text-gray-400 text-[10px]">[Photo {i}]</span>
+                                <img src={src} alt={`Photo ${i + 1}`} className="w-full h-full object-cover" />
                             </div>
                         ))}
                     </div>

@@ -8,10 +8,8 @@ export default function SupportACausePage() {
     return (
         <main className="w-full bg-white font-sans text-slate-800">
             <section className="relative w-full h-[300px] md:h-[400px] lg:h-[500px] bg-sky-100 overflow-hidden">
-                <div className="absolute inset-0 bg-slate-200">
-                    <div className="w-full h-full flex items-center justify-center text-slate-400 bg-gray-200">
-                        [Training Workshop Background Image]
-                    </div>
+                <div className="absolute inset-0">
+                    <img src="/Homepage/hero-bg.jpg" alt="Support a Cause" className="w-full h-full object-cover" />
                 </div>
                 <div className="absolute top-8 left-4 md:left-10 bg-[#00AEFF]/90 px-6 py-4 max-w-[280px] md:max-w-[380px]">
                     <p className="text-sm md:text-base text-white/90 uppercase tracking-wider font-medium">
