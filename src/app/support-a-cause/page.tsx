@@ -1,22 +1,21 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 
 export default function SupportACausePage() {
     const [selectedAmount, setSelectedAmount] = useState<string>("5000");
 
     return (
         <main className="w-full bg-white font-sans text-slate-800">
-            <section className="relative w-full h-[300px] md:h-[400px] lg:h-[500px] bg-sky-100 overflow-hidden">
-                <div className="absolute inset-0">
-                    <img src="/Homepage/hero-bg.jpg" alt="Support a Cause" className="w-full h-full object-cover" />
-                </div>
+            <section className="relative w-full h-[300px] md:h-[400px] lg:h-[500px] overflow-hidden">
+                <Image src="/Homepage/hero-bg.jpg" alt="Support a Cause" fill className="object-cover object-center" priority sizes="100vw" />
                 <div className="absolute top-8 left-4 md:left-10 bg-[#00AEFF]/90 px-6 py-4 max-w-[280px] md:max-w-[380px]">
                     <p className="text-sm md:text-base text-white/90 uppercase tracking-wider font-medium">
-                        SKILLS THAT SHINE
+                        MAKE A DIFFERENCE
                     </p>
                     <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white uppercase leading-tight">
-                        FUTURES DEFINED
+                        SUPPORT A CAUSE
                     </h1>
                 </div>
             </section>

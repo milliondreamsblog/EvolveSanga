@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useCallback } from "react";
+import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const SLIDES = [
@@ -76,11 +77,12 @@ export function ActivitiesSection() {
                                     className="relative overflow-hidden rounded-lg mb-5 w-[223px] h-[222px] border-[4px] border-[#0077B6]"
                                     style={{ background: "#D9D9D9" }}
                                 >
-                                    <div
-                                        className="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
-                                        style={{
-                                            backgroundImage: `url(${activity.image})`,
-                                        }}
+                                    <Image
+                                        src={activity.image}
+                                        alt={activity.title}
+                                        fill
+                                        className="object-cover transition-transform duration-500 group-hover:scale-110"
+                                        sizes="223px"
                                     />
                                 </div>
                                 <h3 className="font-heading font-bold text-[#003056] uppercase text-sm md:text-base group-hover:text-[#00BCD4] transition-colors leading-tight px-2 text-center">

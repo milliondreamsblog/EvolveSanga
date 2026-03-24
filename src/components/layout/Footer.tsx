@@ -18,25 +18,25 @@ export function Footer() {
                         <div>
                             <h5 className="font-bold italic text-[13px] mb-3 text-white">Living</h5>
                             <ul className="space-y-[6px] text-[12px] text-white/75 pl-4">
-                                <li><Link href="#" className="hover:text-white transition-colors">Free Food Drives</Link></li>
-                                <li><Link href="#" className="hover:text-white transition-colors">Youth Welfare Centers</Link></li>
-                                <li><Link href="#" className="hover:text-white transition-colors">Free Cloth Distribution</Link></li>
+                                <li><Link href="/activities/free-food-drive" className="hover:text-white transition-colors">Free Food Drives</Link></li>
+                                <li><Link href="/activities/youth-welfare-centers" className="hover:text-white transition-colors">Youth Welfare Centers</Link></li>
+                                <li><Link href="/activities/cloth-distribution" className="hover:text-white transition-colors">Free Cloth Distribution</Link></li>
                             </ul>
                         </div>
                         <div>
                             <h5 className="font-bold italic text-[13px] mb-3 text-white">Loving</h5>
                             <ul className="space-y-[6px] text-[12px] text-white/75 pl-4">
-                                <li><Link href="#" className="hover:text-white transition-colors">Environment Care</Link></li>
-                                <li><Link href="#" className="hover:text-white transition-colors">Mental Wellness Program</Link></li>
-                                <li><Link href="#" className="hover:text-white transition-colors">Women Empowerment</Link></li>
+                                <li><Link href="/activities/environment-care" className="hover:text-white transition-colors">Environment Care</Link></li>
+                                <li><Link href="/activities/mental-wellness-program" className="hover:text-white transition-colors">Mental Wellness Program</Link></li>
+                                <li><Link href="/activities/women-empowerment" className="hover:text-white transition-colors">Women Empowerment</Link></li>
                             </ul>
                         </div>
                         <div>
                             <h5 className="font-bold italic text-[13px] mb-3 text-white">Learning</h5>
                             <ul className="space-y-[6px] text-[12px] text-white/75 pl-4">
-                                <li><Link href="#" className="hover:text-white transition-colors">Access To Education Initiative</Link></li>
-                                <li><Link href="#" className="hover:text-white transition-colors">Skill Development & Training Programs</Link></li>
-                                <li><Link href="#" className="hover:text-white transition-colors">Value Education Program</Link></li>
+                                <li><Link href="/activities/access-to-education" className="hover:text-white transition-colors">Access To Education Initiative</Link></li>
+                                <li><Link href="/activities/skill-development" className="hover:text-white transition-colors">Skill Development & Training Programs</Link></li>
+                                <li><Link href="/activities/value-education-program" className="hover:text-white transition-colors">Value Education Program</Link></li>
                             </ul>
                         </div>
                     </div>
@@ -64,11 +64,11 @@ export function Footer() {
                                 GET INVOLVED
                             </h4>
                             <ul className="space-y-[5px] text-[12px] text-white/75">
-                                <li><Link href="#" className="hover:text-white transition-colors">Become A Volunteer</Link></li>
-                                <li><Link href="#" className="hover:text-white transition-colors">Internship</Link></li>
-                                <li><Link href="#" className="hover:text-white transition-colors">Donate</Link></li>
-                                <li><Link href="#" className="hover:text-white transition-colors">Corporate Partners</Link></li>
-                                <li><Link href="#" className="hover:text-white transition-colors">CSR</Link></li>
+                                <li><Link href="/join-us" className="hover:text-white transition-colors">Become A Volunteer</Link></li>
+                                <li><Link href="/join-us" className="hover:text-white transition-colors">Internship</Link></li>
+                                <li><Link href="/support-a-cause" className="hover:text-white transition-colors">Donate</Link></li>
+                                <li><Link href="/join-us" className="hover:text-white transition-colors">Corporate Partners</Link></li>
+                                <li><Link href="/join-us" className="hover:text-white transition-colors">CSR</Link></li>
                             </ul>
                         </div>
 

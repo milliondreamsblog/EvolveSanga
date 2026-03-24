@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 const HERO_IMAGES = [
@@ -31,10 +32,13 @@ export function Hero() {
                         index === currentSlide ? "opacity-100" : "opacity-0"
                     )}
                 >
-                    <img
+                    <Image
                         src={src}
                         alt={`Hero Slide ${index + 1}`}
-                        className="w-full h-full object-cover object-center"
+                        fill
+                        className="object-cover object-center"
+                        priority={index === 0}
+                        sizes="100vw"
                     />
                 </div>
             ))}

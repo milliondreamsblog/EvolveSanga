@@ -8,7 +8,7 @@ export function MissionSection() {
                 <div className="flex flex-col md:flex-row items-center gap-12">
                     <div className="w-full md:w-1/4 flex justify-center flex-shrink-0">
                         <Image
-                            src="/about/EVOLVE_final_LOGO 1.png"
+                            src="/About/EVOLVE_final_LOGO 1.png"
                             alt="Evolve Sangh Foundation"
                             width={224}
                             height={224}

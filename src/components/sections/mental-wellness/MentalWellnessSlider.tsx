@@ -39,6 +39,7 @@ export function MentalWellnessSlider() {
                         fill
                         className="object-fill"
                         priority={index === 0}
+                        sizes="100vw"
                     />
                 </div>
             ))}

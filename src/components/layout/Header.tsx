@@ -10,17 +10,17 @@ const activitiesDropdown = {
     Living: [
         { label: "Food Distribution", href: "/activities/free-food-drive" },
         { label: "Youth Welfare Centers", href: "/activities/youth-welfare-centers" },
-        { label: "Cloth Distribution", href: "#" },
+        { label: "Cloth Distribution", href: "/activities/cloth-distribution" },
     ],
     Learning: [
         { label: "Access To Education Initiative", href: "/activities/access-to-education" },
         { label: "Skill Development Program", href: "/activities/skill-development" },
-        { label: "Value Education Program", href: "#" },
+        { label: "Value Education Program", href: "/activities/value-education-program" },
     ],
     Loving: [
         { label: "Environment Care", href: "/activities/environment-care" },
         { label: "Mental Wellness Program", href: "/activities/mental-wellness-program" },
-        { label: "Women Empowerment", href: "#" },
+        { label: "Women Empowerment", href: "/activities/women-empowerment" },
     ],
 };
 
@@ -91,7 +91,8 @@ export function Header() {
                             </button>
 
                             {openDropdown === "activities" && (
-                                <div className="absolute top-full left-0 mt-2 bg-white rounded-lg shadow-xl border border-gray-100 p-6 min-w-[320px] z-50">
+                                <div className="absolute top-full left-0 pt-2 z-50 min-w-[320px]">
+                                <div className="bg-white rounded-lg shadow-xl border border-gray-100 p-6">
                                     <h3 className="font-bold text-[#0067A5] text-base mb-4 uppercase">Our Activities</h3>
                                     {Object.entries(activitiesDropdown).map(([category, items]) => (
                                         <div key={category} className="mb-4 last:mb-0">
@@ -111,6 +112,7 @@ export function Header() {
                                         </div>
                                     ))}
                                 </div>
+                                </div>
                             )}
                         </div>
 
@@ -128,7 +130,8 @@ export function Header() {
                             </button>
 
                             {openDropdown === "involved" && (
-                                <div className="absolute top-full left-0 mt-2 bg-white rounded-lg shadow-xl border border-gray-100 p-5 min-w-[240px] z-50">
+                                <div className="absolute top-full left-0 pt-2 z-50 min-w-[240px]">
+                                <div className="bg-white rounded-lg shadow-xl border border-gray-100 p-5">
                                     <h3 className="font-bold text-[#0067A5] text-base mb-3 uppercase">Get Involved</h3>
                                     <ul className="space-y-2">
                                         {getInvolvedDropdown.map((item) => (
@@ -142,6 +145,7 @@ export function Header() {
                                             </li>
                                         ))}
                                     </ul>
+                                </div>
                                 </div>
                             )}
                         </div>

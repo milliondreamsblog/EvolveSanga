@@ -153,9 +153,14 @@ export default function MentalWellnessProgramPage() {
                         GLIMPSES
                     </h2>
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
-                        {[1, 2, 3, 4].map((i) => (
-                            <div key={i} className="aspect-[4/3] bg-gray-200 rounded-sm overflow-hidden flex items-center justify-center">
-                                <span className="text-gray-400 text-[10px]">[Photo {i}]</span>
+                        {[
+                            { src: "/MentalWellness/Slider.png", alt: "Mental wellness session 1" },
+                            { src: "/MentalWellness/Slider2.png", alt: "Mental wellness session 2" },
+                            { src: "/MentalWellness/Slider3.png", alt: "Mental wellness session 3" },
+                            { src: "/MentalWellness/Whatwedo.png", alt: "Mental wellness program activities" },
+                        ].map((img, i) => (
+                            <div key={i} className="relative aspect-[4/3] bg-gray-200 rounded-sm overflow-hidden">
+                                <Image src={img.src} alt={img.alt} fill className="object-cover" sizes="(max-width: 768px) 50vw, 25vw" />
                             </div>
                         ))}
                     </div>

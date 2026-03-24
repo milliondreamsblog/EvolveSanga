@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { InterventionsTabs, InterventionItem } from "@/components/sections/youth-welfare/InterventionsTabs";
 import { WhatWeDo } from "@/components/sections/youth-welfare/WhatWeDo";
 import { OurFocus } from "@/components/sections/youth-welfare/OurFocus";
@@ -58,13 +59,11 @@ const foodDriveFocus = [
     "Build healthier, happier, and more resilient communities",
 ];
 
-export default function FreeeFoodDrivePage() {
+export default function FreeFoodDrivePage() {
     return (
         <main className="w-full bg-white font-sans text-slate-800">
-            <section className="relative w-full h-[350px] md:h-[450px] lg:h-[550px] bg-sky-100 overflow-hidden">
-                <div className="absolute inset-0">
-                    <img src="/Activity/food-distribution.jpg" alt="Food Distribution" className="w-full h-full object-cover" />
-                </div>
+            <section className="relative w-full h-[350px] md:h-[450px] lg:h-[550px] overflow-hidden">
+                <Image src="/Activity/food-distribution.jpg" alt="Food Distribution" fill className="object-cover object-center" priority sizes="100vw" />
 
                 <div className="absolute top-8 left-4 md:left-10 bg-[#00AEFF]/90 px-6 py-4 max-w-[280px] md:max-w-[380px]">
                     <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white uppercase leading-tight">
@@ -83,9 +82,9 @@ export default function FreeeFoodDrivePage() {
                 <div className="flex flex-col md:flex-row items-start gap-8 md:gap-12">
                     <div className="w-full md:w-2/5 flex justify-center">
                         <div className="relative w-[240px] h-[240px] md:w-[300px] md:h-[300px]">
-                            <div className="absolute top-0 left-0 w-36 h-36 md:w-40 md:h-40 rounded-full border-4 border-[#87CEEB] overflow-hidden bg-gray-100 z-10"><img src="/Activity/food-distribution.jpg" alt="Food Distribution" className="w-full h-full object-cover" /></div>
-                            <div className="absolute bottom-0 left-6 w-36 h-36 md:w-40 md:h-40 rounded-full border-4 border-[#00AEFF] overflow-hidden bg-gray-200 z-20"><img src="/Activity/Living.svg" alt="Food Distribution" className="w-full h-full object-cover" /></div>
-                            <div className="absolute top-1/4 right-0 w-32 h-32 md:w-36 md:h-36 rounded-full border-4 border-white shadow-lg overflow-hidden bg-gray-300 z-30"><img src="/Activity/Living2.svg" alt="Food Distribution" className="w-full h-full object-cover" /></div>
+                            <div className="absolute top-0 left-0 w-36 h-36 md:w-40 md:h-40 rounded-full border-4 border-[#87CEEB] overflow-hidden bg-gray-100 z-10"><Image src="/Activity/food-distribution.jpg" alt="Food Distribution" fill className="object-cover" sizes="160px" /></div>
+                            <div className="absolute bottom-0 left-6 w-36 h-36 md:w-40 md:h-40 rounded-full border-4 border-[#00AEFF] overflow-hidden bg-gray-200 z-20"><Image src="/Activity/Living2.svg" alt="Living" fill className="object-cover" sizes="160px" /></div>
+                            <div className="absolute top-1/4 right-0 w-32 h-32 md:w-36 md:h-36 rounded-full border-4 border-white shadow-lg overflow-hidden bg-gray-300 z-30"><Image src="/Activity/youth-welfare-center.jpg" alt="Youth Welfare" fill className="object-cover" sizes="144px" /></div>
                         </div>
                     </div>
 
@@ -134,14 +133,14 @@ export default function FreeeFoodDrivePage() {
                     <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
                         {[
                             "/Activity/food-distribution.jpg",
-                            "/Activity/Living.svg",
                             "/Activity/Living2.svg",
+                            "/Activity/youth-welfare-center.jpg",
                             "/Activity/food-distribution.jpg",
-                            "/Activity/Living.svg",
+                            "/Activity/Living3.svg",
                             "/Activity/Living2.svg",
                         ].map((src, i) => (
-                            <div key={i} className="aspect-[4/3] bg-gray-200 rounded-sm overflow-hidden flex items-center justify-center">
-                                <img src={src} alt={`Photo ${i + 1}`} className="w-full h-full object-cover" />
+                            <div key={i} className="relative aspect-[4/3] bg-gray-200 rounded-sm overflow-hidden">
+                                <Image src={src} alt={`Food drive photo ${i + 1}`} fill className="object-cover" sizes="(max-width: 768px) 50vw, 33vw" />
                             </div>
                         ))}
                     </div>

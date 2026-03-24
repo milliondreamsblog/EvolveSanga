@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 const waysToJoin = [
     {
@@ -67,10 +68,8 @@ export default function JoinUsPage() {
         <main className="w-full bg-white font-sans text-slate-800">
 
             {/* Hero */}
-            <section className="relative w-full h-[280px] md:h-[360px] bg-slate-200 overflow-hidden">
-                <div className="w-full h-full flex items-center justify-center text-slate-400 bg-gray-200">
-                    [Join Us Background Image]
-                </div>
+            <section className="relative w-full h-[280px] md:h-[360px] overflow-hidden">
+                <Image src="/Homepage/hero-bg-2.jpg" alt="Join Our Mission" fill className="object-cover object-center" priority sizes="100vw" />
                 <div className="absolute top-8 left-4 md:left-10 bg-[#00AEFF]/90 px-6 py-4 max-w-[280px] md:max-w-[400px]">
                     <p className="text-sm md:text-base text-white/90 uppercase tracking-wider font-medium">
                         BE THE CHANGE

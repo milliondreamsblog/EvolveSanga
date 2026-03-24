@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const campaigns = [
     {
@@ -43,9 +44,12 @@ export function CampaignSection() {
                             <div
                                 className="relative w-[219px] h-[219px] rounded-[15px] overflow-hidden mb-4 flex-shrink-0"
                             >
-                                <div
-                                    className="w-full h-full bg-cover bg-center"
-                                    style={{ backgroundImage: `url(${camp.image})` }}
+                                <Image
+                                    src={camp.image}
+                                    alt={camp.title.replace("\n", " ")}
+                                    fill
+                                    className="object-cover"
+                                    sizes="219px"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
                                 <div className="absolute bottom-3 left-3 right-3 text-white text-left">

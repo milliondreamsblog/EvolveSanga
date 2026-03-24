@@ -2,6 +2,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 
 export default function ContactUsPage() {
@@ -19,7 +20,6 @@ export default function ContactUsPage() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
     alert("Thank you for contacting us!");
     setFormData({ name: "", phone: "", email: "", message: "" });
   };
@@ -174,7 +174,7 @@ export default function ContactUsPage() {
                   <span className="text-sm font-normal text-slate-700">I'm not a robot</span>
                 </div>
                 <div className="flex flex-col items-center justify-center gap-1">
-                  <img src="https://www.gstatic.com/recaptcha/api2/logo_48.png" alt="reCAPTCHA" className="w-[32px] h-[32px] opacity-50" />
+                  <Image src="https://www.gstatic.com/recaptcha/api2/logo_48.png" alt="reCAPTCHA" width={32} height={32} className="opacity-50" />
                   <span className="text-[10px] text-slate-500">reCAPTCHA</span>
                   <div className="text-[8px] text-slate-400 leading-tight text-center">
                     Privacy - Terms
