@@ -25,19 +25,19 @@ export function MentalWellnessSlider() {
     };
 
     return (
-        <section className="relative w-full h-[350px] md:h-[450px] lg:h-[550px] overflow-hidden bg-sky-100">
+        <section className="relative w-full h-[350px] md:h-[450px] lg:h-[550px] overflow-hidden bg-[#C8E8FF]">
             {/* Slider Images */}
             {slides.map((slide, index) => (
                 <div
                     key={slide.id}
-                    className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${index === currentSlide ? "opacity-100" : "opacity-0"
+                    className={`absolute inset-0 transition-opacity duration-[1200ms] ease-in-out ${index === currentSlide ? "opacity-100" : "opacity-0"
                         }`}
                 >
                     <Image
                         src={slide.image}
                         alt={slide.alt}
                         fill
-                        className="object-fill"
+                        className="object-contain"
                         priority={index === 0}
                         sizes="100vw"
                     />

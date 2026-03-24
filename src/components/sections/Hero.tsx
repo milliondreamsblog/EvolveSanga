@@ -23,12 +23,12 @@ export function Hero() {
     }, []);
 
     return (
-        <section className="relative w-full h-[500px] md:h-[850px] bg-gray-900 overflow-hidden">
+        <section className="relative w-full h-[500px] md:h-[850px] bg-[#003056] overflow-hidden">
             {HERO_IMAGES.map((src, index) => (
                 <div
                     key={index}
                     className={cn(
-                        "absolute inset-0 transition-opacity duration-1000 ease-in-out",
+                        "absolute inset-0 transition-opacity duration-[1200ms] ease-in-out",
                         index === currentSlide ? "opacity-100" : "opacity-0"
                     )}
                 >
@@ -36,7 +36,7 @@ export function Hero() {
                         src={src}
                         alt={`Hero Slide ${index + 1}`}
                         fill
-                        className="object-cover object-center"
+                        className="object-contain"
                         priority={index === 0}
                         sizes="100vw"
                     />

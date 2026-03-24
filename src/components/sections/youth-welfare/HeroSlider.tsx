@@ -25,19 +25,19 @@ export function HeroSlider() {
     };
 
     return (
-        <section className="relative w-full h-[400px] md:h-[500px] lg:h-[600px] overflow-hidden bg-gray-100">
+        <section className="relative w-full h-[400px] md:h-[500px] lg:h-[600px] overflow-hidden bg-[#003056]">
             {/* Slider Images */}
             {slides.map((slide, index) => (
                 <div
                     key={slide.id}
-                    className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${index === currentSlide ? "opacity-100" : "opacity-0"
+                    className={`absolute inset-0 transition-opacity duration-[1200ms] ease-in-out ${index === currentSlide ? "opacity-100" : "opacity-0"
                         }`}
                 >
                     <Image
                         src={slide.image}
                         alt={slide.alt}
                         fill
-                        className="object-cover"
+                        className="object-contain"
                         priority={index === 0}
                         sizes="100vw"
                     />
