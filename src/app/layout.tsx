@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Inter, Oswald, Open_Sans, League_Gothic } from "next/font/google";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { LenisProvider } from "@/components/providers/LenisProvider";
+import "lenis/dist/lenis.css";
 import "./globals.css";
 
 const inter = Inter({
@@ -41,9 +43,11 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${oswald.variable} ${openSans.variable} ${leagueGothic.variable} antialiased font-sans`}
       >
-        <Header />
-        {children}
-        <Footer />
+        <LenisProvider>
+          <Header />
+          {children}
+          <Footer />
+        </LenisProvider>
       </body>
     </html>
   );
