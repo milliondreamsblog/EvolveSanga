@@ -1,7 +1,9 @@
 import Link from "next/link";
+import Image from "next/image";
 
 interface StoryDetailProps {
     name: string;
+    image?: string;
     role: string;
     company?: string;
     quote: string;
@@ -17,6 +19,7 @@ interface StoryDetailProps {
 
 export function StoryDetail({
     name,
+    image,
     role,
     company,
     quote,
@@ -36,10 +39,14 @@ export function StoryDetail({
             <section className="container mx-auto px-4 md:px-12 py-10 md:py-16">
                 <div className="max-w-3xl mx-auto">
                     <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6 mb-10 bg-[#005089] p-6 text-white">
-                        <div className="w-36 h-44 sm:w-40 sm:h-48 bg-gray-200 rounded-sm overflow-hidden shrink-0 flex items-center justify-center">
-                            <span className="text-gray-400 text-xs text-center px-2">
-                                [Photo]
-                            </span>
+                        <div className="relative w-36 h-44 sm:w-40 sm:h-48 bg-white/10 rounded-sm overflow-hidden shrink-0 flex items-center justify-center">
+                            {image ? (
+                                <Image src={image} alt={name} fill className="object-cover" />
+                            ) : (
+                                <span className="text-gray-400 text-xs text-center px-2">
+                                    [Photo]
+                                </span>
+                            )}
                         </div>
 
                         <div className="flex-1 text-center sm:text-left">

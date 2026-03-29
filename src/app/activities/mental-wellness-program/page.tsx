@@ -1,9 +1,7 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { InterventionsTabs, InterventionItem } from "@/components/sections/youth-welfare/InterventionsTabs";
-import { WhatWeDo } from "@/components/sections/youth-welfare/WhatWeDo";
-import { OurFocus } from "@/components/sections/youth-welfare/OurFocus";
-import Image from "next/image";
 
 /* ── Mental-wellness-specific intervention tabs ── */
 const mentalWellnessInterventions: InterventionItem[] = [
@@ -81,12 +79,53 @@ const mentalWellnessFocus = [
     "Empower young minds to lead healthier, more confident lives",
 ];
 
-import { MentalWellnessSlider } from "@/components/sections/mental-wellness/MentalWellnessSlider";
+const heroSlides = [
+    "/new/wellness/Slider.png",
+    "/new/wellness/Slider2.png",
+    "/new/wellness/Slider3.png"
+];
 
 export default function MentalWellnessProgramPage() {
+    const [currentSlide, setCurrentSlide] = useState(0);
+
+    useEffect(() => {
+        const timer = setInterval(() => {
+            setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
+        }, 5000);
+        return () => clearInterval(timer);
+    }, []);
+
     return (
         <main className="w-full bg-white font-sans text-slate-800">
-            <MentalWellnessSlider />
+            <section className="relative w-full bg-slate-100 overflow-hidden group">
+                {/* Structural invisible image to define height responsively based on the slide's intrinsic aspect ratio */}
+                <img src={heroSlides[0]} alt="spacer" className="w-full h-auto invisible" aria-hidden="true" />
+                
+                {heroSlides.map((slide, index) => (
+                    <div
+                        key={index}
+                        className={`absolute inset-0 transition-opacity duration-1000 ease-in-out flex items-center justify-center ${
+                            index === currentSlide ? "opacity-100 z-10" : "opacity-0 z-0"
+                        }`}
+                    >
+                        <img src={slide} alt={`Mental Wellness Slide ${index + 1}`} className="w-full h-full object-contain sm:object-cover" />
+                    </div>
+                ))}
+
+                {/* Slider indicators */}
+                <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-2 z-20">
+                    {heroSlides.map((_, index) => (
+                        <button
+                            key={index}
+                            onClick={() => setCurrentSlide(index)}
+                            className={`w-2.5 h-2.5 rounded-full transition-all ${
+                                index === currentSlide ? "bg-white w-6" : "bg-white/50 hover:bg-white/80"
+                            }`}
+                            aria-label={`Go to slide ${index + 1}`}
+                        />
+                    ))}
+                </div>
+            </section>
 
             <section className="container mx-auto px-4 md:px-8 lg:px-16 py-10 md:py-14">
                 <div className="text-center mb-8">
@@ -96,33 +135,33 @@ export default function MentalWellnessProgramPage() {
                 </div>
 
                 <div className="flex flex-col md:flex-row items-start gap-8 md:gap-12">
-                    <div className="w-full md:w-2/5 flex justify-center">
+                    <div className="w-full md:w-2/5 flex justify-center mt-4">
                         <div className="relative w-[240px] h-[240px] md:w-[300px] md:h-[300px]">
-                            <div className="absolute top-0 left-0 w-36 h-36 md:w-40 md:h-40 rounded-full border-4 border-[#87CEEB] overflow-hidden bg-gray-100 z-10">
-                                <Image src="/MentalWellness/circle1.png" alt="Mental Wellness 1" fill className="object-cover" />
+                            <div className="absolute top-0 left-0 w-36 h-36 md:w-40 md:h-40 rounded-[2rem] border-4 border-[#87CEEB] overflow-hidden bg-gray-100 z-10">
+                                <img src="/MentalWellness/circle1.png" alt="Mental Wellness 1" className="w-full h-full object-cover" />
                             </div>
-                            <div className="absolute bottom-0 left-6 w-36 h-36 md:w-40 md:h-40 rounded-full border-4 border-[#00AEFF] overflow-hidden bg-gray-200 z-20">
-                                <Image src="/MentalWellness/cirlce2.png" alt="Mental Wellness 2" fill className="object-cover" />
+                            <div className="absolute bottom-0 left-6 w-36 h-36 md:w-40 md:h-40 rounded-[2rem] border-4 border-[#00AEFF] overflow-hidden bg-gray-200 z-20">
+                                <img src="/MentalWellness/cirlce2.png" alt="Mental Wellness 2" className="w-full h-full object-cover" />
                             </div>
-                            <div className="absolute top-1/4 right-0 w-32 h-32 md:w-36 md:h-36 rounded-full border-4 border-white shadow-lg overflow-hidden bg-gray-300 z-30">
-                                <Image src="/MentalWellness/circle3.png" alt="Mental Wellness 3" fill className="object-cover" />
+                            <div className="absolute top-1/4 right-0 w-32 h-32 md:w-36 md:h-36 rounded-[2rem] border-4 border-white shadow-lg overflow-hidden bg-gray-300 z-30">
+                                <img src="/MentalWellness/circle3.png" alt="Mental Wellness 3" className="w-full h-full object-cover" />
                             </div>
                         </div>
                     </div>
 
                     <div className="w-full md:w-3/5 text-justify">
-                        <p className="text-xs md:text-sm text-slate-600 leading-relaxed mb-3">
+                        <p className="text-xs md:text-sm text-slate-600 leading-relaxed mb-4">
                             Mental well-being is a fundamental pillar of human development, yet millions
                             around the world struggle in silence due to stigma, lack of awareness, limited
                             access to support systems, and socio-economic constraints.
                         </p>
-                        <p className="text-xs md:text-sm text-slate-600 leading-relaxed mb-3">
+                        <p className="text-xs md:text-sm text-slate-600 leading-relaxed mb-4">
                             Young people, students, and vulnerable communities often experience high
                             levels of stress, emotional fatigue, anxiety, academic and career pressure, and
                             social isolation — often without access to safe spaces or professional
                             guidance.
                         </p>
-                        <p className="text-xs md:text-sm text-slate-600 leading-relaxed mb-3">
+                        <p className="text-xs md:text-sm text-slate-600 leading-relaxed">
                             When mental health needs are ignored, it affects academic performance,
                             personal confidence, career growth, relationships, and overall quality of life.
                             To build stronger societies and future-ready individuals, mental wellness must
@@ -137,30 +176,80 @@ export default function MentalWellnessProgramPage() {
                 fullWidth={true}
             />
 
-            <WhatWeDo
-                title="WHAT WE DO"
-                description={mentalWellnessWhatWeDo}
-            />
+            <section className="w-full py-10 md:py-16 bg-white">
+                <div className="container mx-auto px-4 md:px-8 lg:px-16">
+                    <h2 className="text-2xl md:text-3xl font-extrabold text-[#005089] uppercase tracking-wide text-center mb-8 md:mb-10">
+                        WHAT WE DO
+                    </h2>
 
-            <OurFocus
-                title="OUR FOCUS"
-                items={mentalWellnessFocus}
-            />
+                    <div className="flex flex-col md:flex-row items-center gap-6 md:gap-10">
+                        <div className="w-full md:w-1/2 order-2 md:order-1">
+                            <div className="space-y-4 text-justify">
+                                <p className="text-xs md:text-sm lg:text-base text-slate-600 leading-relaxed">
+                                    Evolve Sangh Foundation's Mental Wellness Program provides accessible emotional support, awareness, and preventive mental health services for young individuals and underserved communities.
+                                </p>
+                                <p className="text-xs md:text-sm lg:text-base text-slate-600 leading-relaxed">
+                                    Our program fosters resilience, emotional intelligence, confidence, and positive coping abilities by creating nurturing spaces where individuals can speak freely, seek guidance, and receive tools to manage life challenges with dignity and strength.
+                                </p>
+                            </div>
+                        </div>
+                        <div className="w-full md:w-1/2 flex justify-center order-1 md:order-2">
+                            <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-sm border md:border-2 border-gray-100">
+                                <img src="/new/wellness/WhatWeDo.png" alt="What We Do" className="w-full h-full object-cover" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-            <section className="w-full py-10 md:py-14 bg-white">
+            <section className="w-full">
+                <div className="w-full bg-[#005089] py-3 md:py-4">
+                    <div className="container mx-auto px-4 md:px-8 lg:px-16">
+                        <h2 className="text-xl md:text-2xl font-extrabold text-white uppercase tracking-wider text-center">
+                            OUR FOCUS
+                        </h2>
+                    </div>
+                </div>
+
+                <div className="container mx-auto px-4 md:px-8 lg:px-16 py-8 md:py-12 bg-white">
+                    <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
+                        <div className="w-full md:w-5/12 flex justify-center">
+                            <div className="relative w-full aspect-video md:aspect-[4/3] rounded-2xl overflow-hidden shadow-sm border md:border-2 border-gray-100">
+                                <img src="/new/wellness/Ourfocus.png" alt="Our Focus" className="w-full h-full object-cover" />
+                            </div>
+                        </div>
+
+                        <div className="w-full md:w-7/12">
+                            <ul className="space-y-3">
+                                {mentalWellnessFocus.map((item, index) => (
+                                    <li
+                                        key={index}
+                                        className="flex items-start gap-2.5 text-slate-700 text-xs md:text-sm lg:text-base leading-relaxed"
+                                    >
+                                        <span className="text-[#005089] mt-0.5 shrink-0 font-bold">•</span>
+                                        <span>{item}</span>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section className="w-full py-10 md:py-14 bg-[#f8f9fa]">
                 <div className="container mx-auto px-4 md:px-8 lg:px-16">
                     <h2 className="text-2xl md:text-3xl font-extrabold text-[#005089] uppercase tracking-wide text-center mb-8">
                         GLIMPSES
                     </h2>
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
                         {[
-                            { src: "/MentalWellness/Slider.png", alt: "Mental wellness session 1" },
-                            { src: "/MentalWellness/Slider2.png", alt: "Mental wellness session 2" },
-                            { src: "/MentalWellness/Slider3.png", alt: "Mental wellness session 3" },
-                            { src: "/MentalWellness/Whatwedo.png", alt: "Mental wellness program activities" },
-                        ].map((img, i) => (
-                            <div key={i} className="relative aspect-[4/3] bg-gray-200 rounded-sm overflow-hidden">
-                                <Image src={img.src} alt={img.alt} fill className="object-cover" sizes="(max-width: 768px) 50vw, 25vw" />
+                            "/new/wellness/Slider.png",
+                            "/new/wellness/Slider2.png",
+                            "/new/wellness/Slider3.png",
+                            "/new/wellness/WhatWeDo.png",
+                        ].map((src, i) => (
+                            <div key={i} className="aspect-square bg-gray-200 rounded-lg overflow-hidden flex items-center justify-center shadow-sm">
+                                <img src={src} alt={`Mental Wellness Glimpse ${i + 1}`} className="w-full h-full object-cover" />
                             </div>
                         ))}
                     </div>

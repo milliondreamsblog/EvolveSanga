@@ -22,10 +22,10 @@ export default function YouthWelfareCentersPage() {
                 </div>
 
                 <div className="flex flex-col md:flex-row items-start gap-8 md:gap-12">
-                    <div className="w-full md:w-2/5 flex justify-center">
+                    <div className="w-full md:w-2/5 flex justify-center shrink-0">
                         <div className="relative w-[300px] h-[300px] md:w-[400px] md:h-[400px]">
                             <Image
-                                src="/YouthWellfare/Why.svg"
+                                src="/new/Youth/logo.png"
                                 alt="Why Youth Welfare Center"
                                 fill
                                 className="object-contain"

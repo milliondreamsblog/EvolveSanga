@@ -4,18 +4,21 @@ import Image from "next/image";
 const campaigns = [
     {
         title: "TYARI KAL\nKI",
-        desc: "Every night, millions of Indians go to bed hungry. In a country that is moving forward rapidly, it is heartbreaking that so many children, women, and daily wage earners still sleep without a proper meal.",
+        desc: "Every young mind carries the potential to shape tomorrow. But for thousands of underprivileged youth in India, dreams are cut short due to lack of proper guidance, resources, and opportunities.",
         image: "/Homepage/Rectangle.png",
+        url: "/support-a-cause?cause=future"
     },
     {
         title: "HUNGER\nFREE NIGHT",
-        desc: "Every young mind carries the potential to shape tomorrow. But for thousands of underprivileged youth in India, dreams are cut short due to lack of proper guidance, resources, and opportunities.",
+        desc: "Every night, millions of Indians go to bed hungry. In a country that is moving forward rapidly, it is heartbreaking that so many children, women, and daily wage earners still sleep without a proper meal.",
         image: "/Homepage/image.svg",
+        url: "/support-a-cause?cause=food"
     },
     {
         title: "SHIKSHA\nNA RUKE",
         desc: "Education is the most powerful tool to break the cycle of poverty. Yet, millions of children in India are forced to drop out of school because of financial hardships, lack of resources, or family struggles.",
         image: "/Homepage/image.png",
+        url: "/support-a-cause?cause=education"
     },
 ];
 
@@ -81,7 +84,7 @@ export function CampaignSection() {
                             </p>
 
                             <Link
-                                href="#"
+                                href={camp.url}
                                 className="self-start font-bold text-[#0077B6] hover:text-[#005a8c] transition-colors"
                                 style={{
                                     fontFamily: "var(--font-open-sans), 'Open Sans', sans-serif",

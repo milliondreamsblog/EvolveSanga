@@ -1,8 +1,7 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { InterventionsTabs, InterventionItem } from "@/components/sections/youth-welfare/InterventionsTabs";
-import { WhatWeDo } from "@/components/sections/youth-welfare/WhatWeDo";
-import { OurFocus } from "@/components/sections/youth-welfare/OurFocus";
 
 /* ── Skill Development intervention tabs (5 tabs) ── */
 const skillInterventions: InterventionItem[] = [
@@ -80,54 +79,82 @@ const skillFocus = [
     "Create confident, skilled and responsible young citizens",
 ];
 
+const heroSlides = [
+    "/SkillDev/Slider.png",
+    "/SkillDev/Slider2.png"
+];
+
 export default function SkillDevelopmentProgramPage() {
+    const [currentSlide, setCurrentSlide] = useState(0);
+
+    useEffect(() => {
+        const timer = setInterval(() => {
+            setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
+        }, 5000);
+        return () => clearInterval(timer);
+    }, []);
+
     return (
         <main className="w-full bg-white font-sans text-slate-800">
-            <section className="relative w-full h-[350px] md:h-[450px] lg:h-[550px] bg-sky-100 overflow-hidden">
-                <div className="absolute inset-0">
-                    <img src="/YouthWellfare/Slider2.svg" alt="Skill Development" className="w-full h-full object-cover" />
-                </div>
+            {/* ── Hero Slider ─── */}
+            <section className="relative w-full bg-slate-100 overflow-hidden group">
+                <img src={heroSlides[0]} alt="spacer" className="w-full h-auto invisible" aria-hidden="true" />
+                
+                {heroSlides.map((slide, index) => (
+                    <div
+                        key={index}
+                        className={`absolute inset-0 transition-opacity duration-1000 ease-in-out flex items-center justify-center ${
+                            index === currentSlide ? "opacity-100 z-10" : "opacity-0 z-0"
+                        }`}
+                    >
+                        <img src={slide} alt={`Skill Development Slide ${index + 1}`} className="w-full h-full object-contain sm:object-cover" />
+                    </div>
+                ))}
 
-                <div className="absolute top-8 left-4 md:left-10 bg-[#00AEFF]/90 px-6 py-4 max-w-[280px] md:max-w-[380px]">
-                    <p className="text-sm md:text-base text-white/90 uppercase tracking-wider font-medium">
-                        SKILLS THAT SHINE
-                    </p>
-                    <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white uppercase leading-tight">
-                        FUTURES DEFINED
-                    </h1>
+                {/* Slider indicators */}
+                <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-2 z-20">
+                    {heroSlides.map((_, index) => (
+                        <button
+                            key={index}
+                            onClick={() => setCurrentSlide(index)}
+                            className={`w-2.5 h-2.5 rounded-full transition-all ${
+                                index === currentSlide ? "bg-[#00AEFF] w-6" : "bg-white/80 hover:bg-white"
+                            }`}
+                            aria-label={`Go to slide ${index + 1}`}
+                        />
+                    ))}
                 </div>
             </section>
 
-            <section className="container mx-auto px-4 md:px-8 lg:px-16 py-10 md:py-14">
+            {/* ── WHY SKILL DEVELOPMENT? ─── */}
+            <section className="container mx-auto px-4 md:px-8 lg:px-16 py-10 md:py-16">
                 <div className="text-center mb-8">
                     <h2 className="text-2xl md:text-3xl font-extrabold text-[#005089] uppercase tracking-wide">
                         WHY SKILL DEVELOPMENT?
                     </h2>
                 </div>
 
-                <div className="flex flex-col md:flex-row items-start gap-8 md:gap-12">
-                    <div className="w-full md:w-2/5 flex justify-center">
-                        <div className="relative w-[240px] h-[240px] md:w-[300px] md:h-[300px]">
-                            <div className="absolute top-0 left-0 w-36 h-36 md:w-40 md:h-40 rounded-full border-4 border-[#87CEEB] overflow-hidden bg-gray-100 z-10"><img src="/YouthWellfare/Slider1.svg" alt="Skill Development" className="w-full h-full object-cover" /></div>
-                            <div className="absolute bottom-0 left-6 w-36 h-36 md:w-40 md:h-40 rounded-full border-4 border-[#00AEFF] overflow-hidden bg-gray-200 z-20"><img src="/YouthWellfare/Slider2.svg" alt="Skill Development" className="w-full h-full object-cover" /></div>
-                            <div className="absolute top-1/4 right-0 w-32 h-32 md:w-36 md:h-36 rounded-full border-4 border-white shadow-lg overflow-hidden bg-gray-300 z-30"><img src="/YouthWellfare/Slider3.svg" alt="Skill Development" className="w-full h-full object-cover" /></div>
+                <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+                    <div className="w-full lg:w-2/5 flex justify-center shrink-0">
+                        <div className="relative w-full max-w-[320px] aspect-square">
+                            <img src="/SkillDev/Why.png" alt="Why Skill Development" className="w-full h-full object-contain" />
                         </div>
                     </div>
 
-                    <div className="w-full md:w-3/5 text-justify">
-                        <p className="text-xs md:text-sm text-slate-600 leading-relaxed mb-3">
+                    <div className="w-full lg:w-3/5 text-justify">
+                        <p className="text-xs md:text-sm lg:text-base text-slate-700 leading-relaxed mb-4">
                             In an ever-evolving world, education alone is not enough — today&apos;s youth need
                             practical skills, digital competency, confidence, and exposure to real-world learning
                             to succeed. Yet, millions of young people globally face barriers to quality skill
                             development due to financial limitations, lack of training resources, minimal
                             industry exposure, and limited access to professional mentorship.
                         </p>
-                        <p className="text-xs md:text-sm text-slate-600 leading-relaxed mb-3">
+                        <p className="text-xs md:text-sm lg:text-base text-slate-700 leading-relaxed mb-4">
                             Without the right skills, brilliant and hardworking youth often struggle for
                             employment, career direction, and economic independence — resulting in
                             untapped potential and lost opportunities.
                         </p>
-                        <p className="text-xs md:text-sm text-slate-600 leading-relaxed">
+                        <p className="text-xs md:text-sm lg:text-base text-slate-700 leading-relaxed">
                             Equipping young people with future-ready skills is key to enabling long-term
                             empowerment, sustainable livelihoods, and inclusive social growth.
                         </p>
@@ -135,35 +162,94 @@ export default function SkillDevelopmentProgramPage() {
                 </div>
             </section>
 
+            {/* ── OUR INTERVENTIONS ─── */}
+            <div className="text-center my-6 md:my-8 lg:my-10">
+                <h2 className="text-2xl md:text-3xl font-extrabold text-[#005089] uppercase tracking-wide">
+                    OUR INTERVENTIONS
+                </h2>
+            </div>
             <InterventionsTabs
                 items={skillInterventions}
                 fullWidth={true}
             />
 
-            <WhatWeDo
-                title="WHAT WE DO"
-                description={skillWhatWeDo}
-            />
+            {/* ── WHAT WE DO ─── */}
+            <section className="w-full py-10 md:py-16 bg-white flex justify-center mt-10">
+                <div className="container mx-auto px-4 md:px-8 lg:px-16 max-w-6xl">
+                    <h2 className="text-2xl md:text-3xl font-extrabold text-[#005089] uppercase tracking-wide text-center mb-8 md:mb-12">
+                        WHAT WE DO
+                    </h2>
 
-            <OurFocus
-                title="OUR FOCUS"
-                items={skillFocus}
-            />
+                    <div className="flex flex-col md:flex-row items-center gap-8 md:gap-14">
+                        <div className="w-full md:w-1/2 order-2 md:order-1 text-justify">
+                            <div className="space-y-4">
+                                <p className="text-xs md:text-sm lg:text-base text-slate-700 leading-relaxed">
+                                    {skillWhatWeDo[0]}
+                                </p>
+                                <p className="text-xs md:text-sm lg:text-base text-slate-700 leading-relaxed">
+                                    {skillWhatWeDo[1]}
+                                </p>
+                            </div>
+                        </div>
+                        <div className="w-full md:w-1/2 flex justify-center order-1 md:order-2">
+                            <div className="relative w-full aspect-[4/3] rounded-3xl overflow-hidden shadow-sm">
+                                <img src="/SkillDev/WHATWeDo.png" alt="What We Do" className="w-full h-full object-cover" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
+            {/* ── OUR FOCUS ─── */}
+            <section className="w-full">
+                <div className="w-full bg-[#005089] py-3 md:py-4">
+                    <div className="container mx-auto px-4 md:px-8 lg:px-16">
+                        <h2 className="text-xl md:text-2xl font-extrabold text-white uppercase tracking-wider text-center">
+                            OUR FOCUS
+                        </h2>
+                    </div>
+                </div>
+
+                <div className="container mx-auto px-4 md:px-8 lg:px-16 py-10 md:py-16 bg-white border-b-4 border-b-[#005089]">
+                    <div className="flex flex-col md:flex-row items-center justify-center gap-10 md:gap-16 max-w-6xl mx-auto">
+                        <div className="w-full md:w-5/12 flex justify-center shrink-0">
+                            <div className="relative w-full aspect-square md:aspect-[4/3] rounded-3xl overflow-hidden shadow-sm">
+                                <img src="/SkillDev/OurFocus.png" alt="Our Focus" className="w-full h-full object-cover" />
+                            </div>
+                        </div>
+
+                        <div className="w-full md:w-7/12">
+                            <ul className="space-y-3">
+                                {skillFocus.map((item, index) => (
+                                    <li
+                                        key={index}
+                                        className="flex items-start gap-3 text-slate-800 font-medium text-xs md:text-sm lg:text-base leading-relaxed"
+                                    >
+                                        <span className="text-slate-800 mt-[3px] shrink-0 font-bold text-xs">•</span>
+                                        <span>{item}</span>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* ── GLIMPSES ─── */}
             <section className="w-full py-10 md:py-14 bg-white">
-                <div className="container mx-auto px-4 md:px-8 lg:px-16">
-                    <h2 className="text-2xl md:text-3xl font-extrabold text-[#005089] uppercase tracking-wide text-center mb-8">
+                <div className="container mx-auto px-4 md:px-8 lg:px-16 pl-6 pr-6">
+                    <h2 className="text-2xl md:text-3xl font-extrabold text-[#005089] uppercase tracking-wide text-center mb-10">
                         GLIMPSES
                     </h2>
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 lg:gap-8 max-w-5xl mx-auto">
                         {[
-                            "/YouthWellfare/Slider1.svg",
-                            "/YouthWellfare/Slider2.svg",
-                            "/YouthWellfare/Slider3.svg",
-                            "/YouthWellfare/WhatweDo.svg",
+                            "/SkillDev/glimes.png",
+                            "/SkillDev/glimes2.png",
+                            "/SkillDev/glimes3.png",
+                            "/SkillDev/glimes4.png",
                         ].map((src, i) => (
-                            <div key={i} className="aspect-[4/3] bg-gray-200 rounded-sm overflow-hidden flex items-center justify-center">
-                                <img src={src} alt={`Photo ${i + 1}`} className="w-full h-full object-cover" />
+                            <div key={i} className="aspect-square bg-[#fdefd1] rounded-sm overflow-hidden flex items-center justify-center shadow-sm">
+                                <img src={src} alt={`Skill Development Glimpse ${i + 1}`} className="w-full h-full object-cover" />
                             </div>
                         ))}
                     </div>

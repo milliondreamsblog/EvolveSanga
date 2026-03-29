@@ -44,7 +44,7 @@ export default function ContactUsPage() {
                 For Corporate Partnerships
               </h2>
               <div className="text-base text-slate-600 space-y-1">
-                <p>Rantidev – <span className="font-semibold">9151050779</span></p>
+                <p>Vishant – <span className="font-semibold">9664379981</span></p>
                 <a href="mailto:Info@Evolve.Org" className="text-[#0067A5] hover:underline">
                   Info@Evolve.Org
                 </a>
@@ -58,7 +58,7 @@ export default function ContactUsPage() {
                 <span className="text-lg text-slate-700">For New Donors</span>
               </h2>
               <div className="text-base text-slate-600 space-y-1">
-                <p>Praveen – <span className="font-semibold">9151050780</span></p>
+                <p>Vishant– <span className="font-semibold">9664379981</span></p>
                 <a href="mailto:Info@Evolve.Org" className="text-[#0067A5] hover:underline">
                   Info@Evolve.Org
                 </a>
@@ -75,7 +75,7 @@ export default function ContactUsPage() {
                 <p className="text-base text-slate-600 leading-relaxed">
                   3rd Floor, 13 Avantipuram, Kalyanpur, Kanpur - 208024
                   <br />
-                  <span className="font-semibold">Phone:</span> +91-9151050780, +91-7007017889
+                  <span className="font-semibold">Phone:</span> +91-9664379981, +91-7007017889
                   <br />
                   <span className="font-semibold">Email:</span> Info@Evolve.Org
                 </p>
@@ -94,7 +94,7 @@ export default function ContactUsPage() {
           <div>
             <div className="mb-8">
               <h2 className="text-xl font-bold text-slate-900 uppercase mb-3">
-                Helpdesk
+                Help desk
               </h2>
               <p className="text-slate-600">
                 For any grievance, suggestions and queries kindly write to us.

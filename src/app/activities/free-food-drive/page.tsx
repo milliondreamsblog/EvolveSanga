@@ -1,9 +1,7 @@
 "use client";
 
-import Image from "next/image";
+import { useState, useEffect } from "react";
 import { InterventionsTabs, InterventionItem } from "@/components/sections/youth-welfare/InterventionsTabs";
-import { WhatWeDo } from "@/components/sections/youth-welfare/WhatWeDo";
-import { OurFocus } from "@/components/sections/youth-welfare/OurFocus";
 
 /* ── Food Drive intervention tabs (3 tabs) ── */
 const foodDriveInterventions: InterventionItem[] = [
@@ -59,52 +57,102 @@ const foodDriveFocus = [
     "Build healthier, happier, and more resilient communities",
 ];
 
+const heroSlides = [
+    "/new/Freefood/Slider.png",
+    "/new/Freefood/Slider2.png",
+    "/new/Freefood/Slider3.png",
+    "/new/Freefood/Slider4.png",
+    "/new/Freefood/Slider5.png",
+];
+
 export default function FreeFoodDrivePage() {
+    const [currentSlide, setCurrentSlide] = useState(0);
+
+    useEffect(() => {
+        const timer = setInterval(() => {
+            setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
+        }, 5000);
+        return () => clearInterval(timer);
+    }, []);
+
     return (
         <main className="w-full bg-white font-sans text-slate-800">
-            <section className="relative w-full h-[350px] md:h-[450px] lg:h-[550px] overflow-hidden">
-                <Image src="/Activity/food-distribution.jpg" alt="Food Distribution" fill className="object-cover object-center" priority sizes="100vw" />
+            {/* ── Hero Slider ─── */}
+            <section className="relative w-full bg-slate-100 overflow-hidden group">
+                {/* Structural invisible image to define height responsively based on the slide's intrinsic aspect ratio */}
+                <img src={heroSlides[0]} alt="spacer" className="w-full h-auto invisible" aria-hidden="true" />
+                
+                {heroSlides.map((slide, index) => (
+                    <div
+                        key={index}
+                        className={`absolute inset-0 transition-opacity duration-1000 ease-in-out flex items-center justify-center ${
+                            index === currentSlide ? "opacity-100 z-10" : "opacity-0 z-0"
+                        }`}
+                    >
+                        <img src={slide} alt={`Free Food Drive Slide ${index + 1}`} className="w-full h-full object-contain sm:object-cover" />
+                    </div>
+                ))}
 
-                <div className="absolute top-8 left-4 md:left-10 bg-[#00AEFF]/90 px-6 py-4 max-w-[280px] md:max-w-[380px]">
-                    <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white uppercase leading-tight">
-                        FOOD <span className="font-extrabold">FOR ALL</span>
-                    </h1>
+                {/* Slider indicators */}
+                <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-2 z-20">
+                    {heroSlides.map((_, index) => (
+                        <button
+                            key={index}
+                            onClick={() => setCurrentSlide(index)}
+                            className={`w-2.5 h-2.5 rounded-full transition-all ${
+                                index === currentSlide ? "bg-[#00AEFF] w-6" : "bg-white/80 hover:bg-white"
+                            }`}
+                            aria-label={`Go to slide ${index + 1}`}
+                        />
+                    ))}
                 </div>
             </section>
 
-            <section className="container mx-auto px-4 md:px-8 lg:px-16 py-10 md:py-14">
+            {/* ── WHY FOOD SECURITY? ─── */}
+            <section className="container mx-auto px-4 md:px-8 lg:px-16 py-10 md:py-16">
                 <div className="text-center mb-8">
                     <h2 className="text-2xl md:text-3xl font-extrabold text-[#005089] uppercase tracking-wide">
                         WHY FOOD SECURITY?
                     </h2>
                 </div>
 
-                <div className="flex flex-col md:flex-row items-start gap-8 md:gap-12">
-                    <div className="w-full md:w-2/5 flex justify-center">
-                        <div className="relative w-[240px] h-[240px] md:w-[300px] md:h-[300px]">
-                            <div className="absolute top-0 left-0 w-36 h-36 md:w-40 md:h-40 rounded-full border-4 border-[#87CEEB] overflow-hidden bg-gray-100 z-10"><Image src="/Activity/food-distribution.jpg" alt="Food Distribution" fill className="object-cover" sizes="160px" /></div>
-                            <div className="absolute bottom-0 left-6 w-36 h-36 md:w-40 md:h-40 rounded-full border-4 border-[#00AEFF] overflow-hidden bg-gray-200 z-20"><Image src="/Activity/Living2.svg" alt="Living" fill className="object-cover" sizes="160px" /></div>
-                            <div className="absolute top-1/4 right-0 w-32 h-32 md:w-36 md:h-36 rounded-full border-4 border-white shadow-lg overflow-hidden bg-gray-300 z-30"><Image src="/Activity/youth-welfare-center.jpg" alt="Youth Welfare" fill className="object-cover" sizes="144px" /></div>
+                <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+                    <div className="w-full lg:w-2/5 flex justify-center shrink-0">
+                        <div className="relative w-[280px] h-[280px] md:w-[320px] md:h-[320px] border-[6px] md:border-8 border-[#00AEFF] bg-white flex items-center justify-center">
+                            {/* Circle 1: Top Left */}
+                            <div className="absolute top-[-25px] md:top-[-30px] left-[-20px] md:left-[-30px] w-40 h-40 md:w-48 md:h-48 rounded-full border-[6px] border-white overflow-hidden bg-gray-100 z-30 shadow-sm">
+                                <img src="/new/Freefood/Slider.png" alt="Food Drive 1" className="w-full h-full object-cover" />
+                            </div>
+                            
+                            {/* Circle 2: Mid-right */}
+                            <div className="absolute top-1/2 -translate-y-1/2 right-[-25px] md:right-[-35px] w-36 h-36 md:w-44 md:h-44 rounded-full border-[6px] border-white overflow-hidden bg-gray-200 z-20 shadow-sm">
+                                <img src="/new/Freefood/Slider2.png" alt="Food Drive 2" className="w-full h-full object-cover" />
+                            </div>
+                            
+                            {/* Circle 3: Bottom Left */}
+                            <div className="absolute bottom-[-20px] md:bottom-[-25px] left-2 md:left-6 w-36 h-36 md:w-44 md:h-44 rounded-full border-[6px] border-white overflow-hidden bg-gray-300 z-10 shadow-sm">
+                                <img src="/new/Freefood/Slider3.png" alt="Food Drive 3" className="w-full h-full object-cover" />
+                            </div>
                         </div>
                     </div>
 
-                    <div className="w-full md:w-3/5 text-justify">
-                        <p className="text-xs md:text-sm text-slate-600 leading-relaxed mb-3">
+                    <div className="w-full lg:w-3/5 text-justify">
+                        <p className="text-xs md:text-sm lg:text-base text-slate-700 leading-relaxed mb-4">
                             Food is a basic human right — yet millions around the world continue to struggle
                             for one nutritious meal a day. Poverty, rising living costs, unstable incomes, and
                             lack of resources force vulnerable families, especially children, to compromise on
                             nutrition and well-being.
                         </p>
-                        <p className="text-xs md:text-sm text-slate-600 leading-relaxed mb-3">
+                        <p className="text-xs md:text-sm lg:text-base text-slate-700 leading-relaxed mb-4">
                             For children and youth, food insecurity leads to malnutrition, poor concentration,
                             lower academic performance, and long-term health challenges. For struggling
                             families, daily sustenance often becomes an overwhelming concern, limiting their
                             ability to focus on education, livelihood, or personal development.
                         </p>
-                        <p className="text-xs md:text-sm text-slate-600 leading-relaxed">
+                        <p className="text-xs md:text-sm lg:text-base text-slate-700 leading-relaxed">
                             Ensuring access to nutritious food is essential not only to fight hunger, but also
                             to support dignity, health, and equal opportunity for every individual —
-                            irrespective of socio-economic background.
+                            regardless of socio-economic background.
                         </p>
                     </div>
                 </div>
@@ -115,32 +163,90 @@ export default function FreeFoodDrivePage() {
                 fullWidth={true}
             />
 
-            <WhatWeDo
-                title="WHAT WE DO"
-                description={foodDriveWhatWeDo}
-            />
+            {/* ── WHAT WE DO ─── */}
+            <section className="w-full py-10 md:py-16 bg-white flex justify-center">
+                <div className="container mx-auto px-4 md:px-8 lg:px-16 max-w-6xl">
+                    <h2 className="text-2xl md:text-3xl font-extrabold text-[#005089] uppercase tracking-wide text-center mb-8 md:mb-12">
+                        WHAT WE DO
+                    </h2>
 
-            <OurFocus
-                title="OUR FOCUS"
-                items={foodDriveFocus}
-            />
+                    <div className="flex flex-col md:flex-row items-center gap-8 md:gap-14">
+                        <div className="w-full md:w-1/2 order-2 md:order-1 text-justify">
+                            <div className="space-y-4">
+                                <p className="text-xs md:text-sm lg:text-base text-slate-700 leading-relaxed">
+                                    {foodDriveWhatWeDo[0]}
+                                </p>
+                                <p className="text-xs md:text-sm lg:text-base text-slate-700 leading-relaxed">
+                                    {foodDriveWhatWeDo[1]}
+                                </p>
+                            </div>
+                        </div>
+                        <div className="w-full md:w-1/2 flex justify-center order-1 md:order-2">
+                            <div className="relative w-full aspect-[4/3] rounded-3xl overflow-hidden shadow-sm">
+                                <img src="/new/Freefood/WhatWeDo.png" alt="What We Do" className="w-full h-full object-cover" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
+            {/* ── OUR FOCUS ─── */}
+            <section className="w-full">
+                <div className="w-full bg-[#005089] py-3 md:py-4">
+                    <div className="container mx-auto px-4 md:px-8 lg:px-16">
+                        <h2 className="text-xl md:text-2xl font-extrabold text-white uppercase tracking-wider text-center">
+                            OUR FOCUS
+                        </h2>
+                    </div>
+                </div>
+
+                <div className="container mx-auto px-4 md:px-8 lg:px-16 py-10 md:py-16 bg-white border-b-4 border-b-[#005089]">
+                    <div className="flex flex-col md:flex-row items-center justify-center gap-10 md:gap-16 max-w-6xl mx-auto">
+                        <div className="w-full md:w-5/12 flex justify-center shrink-0">
+                            <div className="relative w-full aspect-square md:aspect-[4/3] rounded-3xl overflow-hidden shadow-sm">
+                                <img src="/new/Freefood/Ourfocus.png" alt="Our Focus" className="w-full h-full object-cover" />
+                            </div>
+                        </div>
+
+                        <div className="w-full md:w-7/12">
+                            <ul className="space-y-3">
+                                {foodDriveFocus.map((item, index) => (
+                                    <li
+                                        key={index}
+                                        className="flex items-start gap-3 text-slate-800 font-medium text-xs md:text-sm lg:text-base leading-relaxed"
+                                    >
+                                        <span className="text-slate-800 mt-[3px] shrink-0 font-bold text-xs">•</span>
+                                        <span>{item}</span>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* ── GLIMPSES ─── */}
             <section className="w-full py-10 md:py-14 bg-white">
-                <div className="container mx-auto px-4 md:px-8 lg:px-16">
-                    <h2 className="text-2xl md:text-3xl font-extrabold text-[#005089] uppercase tracking-wide text-center mb-8">
+                <div className="container mx-auto px-4 md:px-8 lg:px-16 pl-6 pr-6">
+                    <h2 className="text-2xl md:text-3xl font-extrabold text-[#005089] uppercase tracking-wide text-center mb-10">
                         GLIMPSES
                     </h2>
-                    <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
+                    {/* The 8-grid block from the screenshot: 4 items per row */}
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 lg:gap-8 max-w-5xl mx-auto">
                         {[
-                            "/Activity/food-distribution.jpg",
-                            "/Activity/Living2.svg",
-                            "/Activity/youth-welfare-center.jpg",
-                            "/Activity/food-distribution.jpg",
-                            "/Activity/Living3.svg",
-                            "/Activity/Living2.svg",
+                            "/new/Freefood/glimes.png",
+                            "", 
+                            "",
+                            "/new/Freefood/glimes2.png",
+                            "/new/Freefood/glimes5.png",
+                            "/new/Freefood/glimes6.png",
+                            "/new/Freefood/glimes7.png",
+                            "/new/Freefood/glimes8.png",
                         ].map((src, i) => (
-                            <div key={i} className="relative aspect-[4/3] bg-gray-200 rounded-sm overflow-hidden">
-                                <Image src={src} alt={`Food drive photo ${i + 1}`} fill className="object-cover" sizes="(max-width: 768px) 50vw, 33vw" />
+                            <div key={i} className="aspect-square bg-[#fdefd1] rounded-sm overflow-hidden flex items-center justify-center shadow-sm">
+                                {src ? (
+                                    <img src={src} alt={`Free Food Drive Glimpse ${i + 1}`} className="w-full h-full object-cover" />
+                                ) : null}
                             </div>
                         ))}
                     </div>

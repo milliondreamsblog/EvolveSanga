@@ -1,193 +1,162 @@
 "use client";
 
 import Image from "next/image";
-import { InterventionsTabs, InterventionItem } from "@/components/sections/youth-welfare/InterventionsTabs";
-import { WhatWeDo } from "@/components/sections/youth-welfare/WhatWeDo";
-import { OurFocus } from "@/components/sections/youth-welfare/OurFocus";
 
-/* ── Intervention tabs ── */
-const womenEmpowermentInterventions: InterventionItem[] = [
+/* ── What We Do Data ── */
+const whatWeDoList = [
     {
-        id: "skill-livelihood",
-        label: "SKILL DEVELOPMENT & LIVELIHOOD TRAINING",
-        description:
-            "Vocational Training In Tailoring, Handicrafts, Beauty & Wellness, Food Processing, And Digital Skills\nLivelihood Support To Help Women Achieve Financial Independence\nEntrepreneurship Workshops And Small Business Development Programs",
-        icon: (
-            <svg xmlns="http://www.w3.org/2000/svg" className="w-12 h-12 md:w-16 md:h-16" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 00-2.455 2.456z" />
-            </svg>
-        ),
+        title: "Sewing & Tailoring Training",
+        desc: "Hands-on training in stitching, tailoring, and garment-making to help women build sustainable earning opportunities from home or through community centers."
     },
     {
-        id: "legal-rights",
-        label: "LEGAL AID & RIGHTS AWARENESS",
-        description:
-            "Workshops On Women's Legal Rights, Property Rights, And Domestic Violence Laws\nLegal Aid Support And Access To Counseling For Vulnerable Women\nAwareness Campaigns Against Child Marriage, Dowry, And Gender Discrimination",
-        icon: (
-            <svg xmlns="http://www.w3.org/2000/svg" className="w-12 h-12 md:w-16 md:h-16" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v17.25m0 0c-1.472 0-2.882.265-4.185.75M12 20.25c1.472 0 2.882.265 4.185.75M18.75 4.97A48.416 48.416 0 0012 4.5c-2.291 0-4.545.16-6.75.47m13.5 0c1.01.143 2.01.317 3 .52m-3-.52l2.62 10.726c.122.499-.106 1.028-.589 1.202a5.988 5.988 0 01-2.031.352 5.988 5.988 0 01-2.031-.352c-.483-.174-.711-.703-.59-1.202L18.75 4.971zm-16.5.52c.99-.203 1.99-.377 3-.52m0 0l2.62 10.726c.122.499-.106 1.028-.589 1.202a5.989 5.989 0 01-2.031.352 5.989 5.989 0 01-2.031-.352c-.483-.174-.711-.703-.59-1.202L5.25 4.971z" />
-            </svg>
-        ),
+        title: "Basic Computer Education",
+        desc: "Digital literacy sessions that enable women to access online opportunities, improve employability, and stay connected in the modern economy."
     },
     {
-        id: "self-help",
-        label: "SELF-HELP GROUPS & MICROFINANCE",
-        description:
-            "Formation And Strengthening Of Women-Led Self-Help Groups (SHGs)\nMicrofinance Access And Financial Literacy Training For Economic Upliftment\nSavings And Credit Programs To Support Women-Owned Enterprises",
-        icon: (
-            <svg xmlns="http://www.w3.org/2000/svg" className="w-12 h-12 md:w-16 md:h-16" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />
-            </svg>
-        ),
-    },
-    {
-        id: "health-safety",
-        label: "HEALTH & SAFETY PROGRAMS",
-        description:
-            "Health Camps, Nutrition Awareness, And Maternal Health Support For Women\nMenstrual Hygiene Education And Distribution Of Sanitary Products\nPsychosocial Support And Safe Spaces For Survivors Of Abuse",
-        icon: (
-            <svg xmlns="http://www.w3.org/2000/svg" className="w-12 h-12 md:w-16 md:h-16" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
-            </svg>
-        ),
-    },
-    {
-        id: "leadership",
-        label: "LEADERSHIP & COMMUNITY ENGAGEMENT",
-        description:
-            "Leadership Training, Public Speaking, And Confidence-Building Programs For Women\nCommunity-Level Advocacy And Participation In Local Governance\nAwareness Drives, Rallies, And Events To Celebrate And Inspire Women",
-        icon: (
-            <svg xmlns="http://www.w3.org/2000/svg" className="w-12 h-12 md:w-16 md:h-16" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M3 3v1.5M3 21v-6m0 0l2.77-.693a9 9 0 016.208.682l.108.054a9 9 0 006.086.71l3.114-.732a48.524 48.524 0 01-.005-10.499l-3.11.732a9 9 0 01-6.085-.711l-.108-.054a9 9 0 00-6.208-.682L3 4.5M3 15V4.5" />
-            </svg>
-        ),
-    },
+        title: "Spoken English & Communication Skills",
+        desc: "Empowering women to communicate confidently, explore professional paths, and participate more actively in social and economic spheres."
+    }
 ];
 
-/* ── What We Do ── */
-const womenEmpowermentWhatWeDo = [
-    "Evolve Sangh Foundation's Women Empowerment Program works to uplift women from underserved communities by providing them with the skills, knowledge, resources, and confidence to lead independent, dignified lives.",
-    "Through skill training, legal awareness, health support, and community leadership initiatives, we ensure that every woman — regardless of her background — has access to opportunity, safety, and the tools to shape her own future.",
+/* ── Our Approach Data ── */
+const ourApproachList = [
+    "Skill Development for Self-reliance",
+    "Inclusive Learning Environments",
+    "Mentorship & Personal Confidence Building",
+    "Community Support & Networking",
+    "Real-world Earning Opportunities"
 ];
 
-/* ── Our Focus ── */
-const womenEmpowermentFocus = [
-    "Promote economic independence and financial literacy for women",
-    "Protect women's rights and ensure access to justice",
-    "Build resilience, confidence, and leadership in women",
-    "Reduce gender-based violence and social inequality",
-    "Support health, hygiene, and well-being of women and girls",
-    "Strengthen women-led self-help groups and community networks",
-    "Create a society where every woman can live with dignity and equality",
+/* ── Placeholder images for Glimpses ── */
+const glimpseImages = [
+    { src: "/Activity/youth-welfare-center.jpg", alt: "Women empowerment glimpse 1" },
+    { src: "/Living/image.png", alt: "Women empowerment glimpse 2" },
+    { src: "/Activity/food-distribution.jpg", alt: "Women empowerment glimpse 3" },
+    { src: "/Living/image-1.png", alt: "Women empowerment glimpse 4" },
 ];
 
 export default function WomenEmpowermentPage() {
     return (
         <main className="w-full bg-white font-sans text-slate-800">
-
             {/* ── Hero Banner ─── */}
-            <section className="relative w-full h-[350px] md:h-[450px] lg:h-[550px] overflow-hidden">
-                <Image
-                    src="/Homepage/hero-bg.jpg"
-                    alt="Women Empowerment — Evolve Sangh Foundation"
-                    fill
-                    className="object-cover object-center"
-                    priority
-                    sizes="100vw"
+            <section className="w-full relative">
+                <img
+                    src="/new/Women/Slider.png"
+                    alt="Women Economic & Social Development"
+                    className="w-full h-auto block"
                 />
-                <div className="absolute top-8 left-4 md:left-10 bg-[#00AEFF]/90 px-6 py-4 max-w-[280px] md:max-w-[380px]">
-                    <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white uppercase leading-tight">
-                        EMPOWER <span className="font-extrabold">WOMEN</span>
-                    </h1>
+            </section>
+
+            {/* ── WOMEN EMPOWERMENT PROGRAM ─── */}
+            <section className="container mx-auto px-4 md:px-8 lg:px-16 py-10 md:py-16 text-center">
+                <h2 className="text-2xl md:text-3xl font-extrabold text-[#005089] uppercase tracking-wide mb-6">
+                    WOMEN EMPOWERMENT PROGRAM
+                </h2>
+                <div className="max-w-4xl mx-auto">
+                    <p className="text-xs md:text-sm lg:text-base text-slate-700 leading-relaxed text-left md:text-center">
+                        At Evolve Sangh Foundation, we believe that when women rise, communities rise. Our Women Empowerment
+                        Program is designed to provide opportunities, resources, and skills that enable women—especially from
+                        underserved backgrounds—to become independent, confident, and financially secure.
+                    </p>
                 </div>
             </section>
 
-            {/* ── Why Women Empowerment? ─── */}
-            <section className="container mx-auto px-4 md:px-8 lg:px-16 py-10 md:py-14">
-                <div className="text-center mb-8">
-                    <h2 className="text-2xl md:text-3xl font-extrabold text-[#005089] uppercase tracking-wide">
-                        WHY WOMEN EMPOWERMENT?
-                    </h2>
+            {/* ── WHAT WE DO ─── */}
+            <section className="container mx-auto px-4 md:px-8 lg:px-16 pb-12 md:pb-20 flex flex-col items-center">
+                <h2 className="text-2xl md:text-3xl font-extrabold text-[#005089] uppercase tracking-wide text-center mb-10">
+                    WHAT WE DO
+                </h2>
+                
+                <div className="max-w-4xl w-full mx-auto space-y-8">
+                    <p className="text-xs md:text-sm lg:text-base text-slate-700 leading-relaxed">
+                        Through our Women Skill Development Centers, we equip women with practical and employable skills
+                        that support long-term economic empowerment and personal growth. Our programs include:
+                    </p>
+
+                    <ul className="space-y-6">
+                        {whatWeDoList.map((item, idx) => (
+                            <li key={idx} className="space-y-1">
+                                <h3 className="text-sm md:text-base font-bold text-slate-800 flex items-start gap-2">
+                                    <span className="text-slate-800 shrink-0 mt-[1px] md:mt-[3px]">•</span>
+                                    <span>{item.title}</span>
+                                </h3>
+                                <p className="text-xs md:text-sm lg:text-base text-slate-600 leading-relaxed pl-6">
+                                    {item.desc}
+                                </p>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            </section>
+
+            {/* ── OUR APPROACH ─── */}
+            <section className="w-full border-t border-slate-200">
+                <div className="w-full bg-[#005089] py-3 md:py-4 border-b-[8px] border-[#0077c0]">
+                    <div className="container mx-auto px-4 md:px-8 lg:px-16 flex justify-center">
+                        <h2 className="text-xl md:text-2xl font-extrabold text-white uppercase tracking-wider text-center flex items-center gap-2">
+                            OUR APPROACH
+                        </h2>
+                    </div>
                 </div>
 
-                <div className="flex flex-col md:flex-row items-start gap-8 md:gap-12">
-                    <div className="w-full md:w-2/5 flex justify-center">
-                        <div className="relative w-[240px] h-[240px] md:w-[300px] md:h-[300px]">
-                            <div className="absolute top-0 left-0 w-36 h-36 md:w-40 md:h-40 rounded-full border-4 border-[#87CEEB] overflow-hidden bg-gray-100 z-10">
-                                <Image src="/Living/image.png" alt="Women Empowerment 1" fill className="object-cover" sizes="160px" />
-                            </div>
-                            <div className="absolute bottom-0 left-6 w-36 h-36 md:w-40 md:h-40 rounded-full border-4 border-[#00AEFF] overflow-hidden bg-gray-200 z-20">
-                                <Image src="/Activity/youth-welfare-center.jpg" alt="Women Empowerment 2" fill className="object-cover" sizes="160px" />
-                            </div>
-                            <div className="absolute top-1/4 right-0 w-32 h-32 md:w-36 md:h-36 rounded-full border-4 border-white shadow-lg overflow-hidden bg-gray-300 z-30">
-                                <Image src="/Living/image-1.png" alt="Women Empowerment 3" fill className="object-cover" sizes="144px" />
-                            </div>
+                <div className="container mx-auto px-4 md:px-8 lg:px-16 py-12 md:py-20 bg-white">
+                    <div className="flex flex-col md:flex-row items-center justify-center gap-10 md:gap-24 max-w-5xl mx-auto">
+                        
+                        {/* Abstract Icons Container */}
+                        <div className="flex items-center gap-4 md:gap-8 relative z-10 shrink-0">
+                             {/* Connector line */}
+                             <div className="absolute top-1/2 left-4 right-4 h-0.5 bg-gray-300 -z-10"></div>
+                             
+                             {/* First circle */}
+                             <div className="w-20 h-20 md:w-32 md:h-32 rounded-full border-[3px] md:border-4 border-[#005089] bg-white flex items-center justify-center overflow-hidden shadow-sm relative">
+                                  {/* Dummy SVG resembling leaves and a female profile silhouette */}
+                                  <svg className="w-10 h-10 md:w-16 md:h-16 text-[#005089]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 11c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v3h16v-3c0-2.66-5.33-4-8-4z" />
+                                  </svg>
+                             </div>
+                             
+                             {/* Second circle */}
+                             <div className="w-20 h-20 md:w-32 md:h-32 rounded-full border-[3px] md:border-4 border-[#005089] bg-[#fff0f5] flex items-center justify-center overflow-hidden shadow-sm relative">
+                                  {/* Dummy SVG resembling a megaphone and female symbol */}
+                                  <svg className="w-10 h-10 md:w-16 md:h-16 text-[#e83e8c]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z" />
+                                  </svg>
+                             </div>
+                        </div>
+
+                        {/* Bullet List */}
+                        <div className="text-left w-full max-w-sm">
+                            <ul className="space-y-2 md:space-y-3">
+                                {ourApproachList.map((item, index) => (
+                                    <li
+                                        key={index}
+                                        className="flex items-start gap-3 text-slate-800 text-xs md:text-sm lg:text-base font-bold"
+                                    >
+                                        <span className="text-slate-800 mt-[2px] shrink-0 text-xs">•</span>
+                                        <span>{item}</span>
+                                    </li>
+                                ))}
+                            </ul>
                         </div>
                     </div>
-
-                    <div className="w-full md:w-3/5 text-justify">
-                        <p className="text-xs md:text-sm text-slate-600 leading-relaxed mb-3">
-                            Women form nearly half of India&apos;s population — yet millions continue to face
-                            systemic barriers including poverty, lack of education, gender-based discrimination,
-                            and limited access to opportunities. Empowering women is not just a social
-                            responsibility — it is essential for building stronger, more equitable communities.
-                        </p>
-                        <p className="text-xs md:text-sm text-slate-600 leading-relaxed mb-3">
-                            Women in underserved communities often bear the burden of economic hardship,
-                            domestic responsibilities, health challenges, and social marginalisation — without
-                            the resources, skills, or support systems needed to change their circumstances.
-                            Without intervention, this cycle of inequality continues across generations.
-                        </p>
-                        <p className="text-xs md:text-sm text-slate-600 leading-relaxed">
-                            When women are empowered with skills, knowledge, rights, and opportunities, entire
-                            families and communities benefit. An empowered woman educates her children, strengthens
-                            her household, and contributes meaningfully to society&apos;s progress.
-                        </p>
-                    </div>
                 </div>
             </section>
 
-            {/* ── Our Interventions ─── */}
-            <InterventionsTabs
-                items={womenEmpowermentInterventions}
-                fullWidth={true}
-            />
-
-            {/* ── What We Do ─── */}
-            <WhatWeDo
-                title="WHAT WE DO"
-                description={womenEmpowermentWhatWeDo}
-            />
-
-            {/* ── Our Focus ─── */}
-            <OurFocus
-                title="OUR FOCUS"
-                items={womenEmpowermentFocus}
-            />
-
-            {/* ── Glimpses ─── */}
-            <section className="w-full py-10 md:py-14 bg-white">
-                <div className="container mx-auto px-4 md:px-8 lg:px-16">
+            {/* ── GLIMPSES ─── */}
+            <section className="w-full py-10 md:py-14 bg-white border-b-4 border-b-[#005089] mb-4">
+                <div className="container mx-auto px-4 md:px-8 lg:px-16 flex flex-col items-center">
                     <h2 className="text-2xl md:text-3xl font-extrabold text-[#005089] uppercase tracking-wide text-center mb-8">
                         GLIMPSES
                     </h2>
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
-                        {[
-                            { src: "/Activity/youth-welfare-center.jpg", alt: "Women empowerment activity 1" },
-                            { src: "/Living/image.png", alt: "Women empowerment activity 2" },
-                            { src: "/Activity/food-distribution.jpg", alt: "Women empowerment activity 3" },
-                            { src: "/Living/image-1.png", alt: "Women empowerment activity 4" },
-                            { src: "/Homepage/hero-bg.jpg", alt: "Women empowerment activity 5" },
-                            { src: "/Living/Rectangle 104.png", alt: "Women empowerment activity 6" },
-                            { src: "/Activity/Living2.svg", alt: "Women empowerment activity 7" },
-                            { src: "/Activity/Living3.svg", alt: "Women empowerment activity 8" },
-                        ].map((img, i) => (
-                            <div key={i} className="relative aspect-square bg-gray-200 rounded-sm overflow-hidden">
+                    <div className="flex justify-center gap-4 md:gap-6 lg:gap-8 flex-wrap">
+                        {glimpseImages.map((img, i) => (
+                            <div key={i} className="relative w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 lg:w-56 lg:h-56 bg-[#fdefd1] rounded-sm overflow-hidden shrink-0">
+                                {/* Next Image with multiply effect to give it that beige feeling on hover. Replace with actual icons later. */}
                                 <Image
                                     src={img.src}
                                     alt={img.alt}
                                     fill
-                                    className="object-cover"
+                                    className="object-cover opacity-80 mix-blend-multiply transition-opacity duration-300 hover:opacity-100"
                                     sizes="(max-width: 768px) 50vw, 25vw"
                                 />
                             </div>
@@ -195,7 +164,6 @@ export default function WomenEmpowermentPage() {
                     </div>
                 </div>
             </section>
-
         </main>
     );
 }

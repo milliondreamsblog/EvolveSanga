@@ -5,11 +5,10 @@ import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 const HERO_IMAGES = [
-    "/Homepage/hero-bg.jpg",
-    "/Homepage/hero-bg-2.jpg",
-    "/Hero/Group 16.svg",
-    "/Hero/Group 17.svg",
-    "/Hero/Group 18.svg",
+    "/new/Homepage/Slider.png",
+    "/new/Homepage/Slider2.png",
+    "/new/Homepage/Slider3.png",
+    "/new/Homepage/Slider4.png",
 ];
 
 export function Hero() {
@@ -23,23 +22,19 @@ export function Hero() {
     }, []);
 
     return (
-        <section className="relative w-full h-[500px] md:h-[850px] bg-[#003056] overflow-hidden">
+        <section className="relative w-full bg-[#003056] overflow-hidden group">
+            {/* Structural invisible spacer to define height responsively based on the slider image's intrinsic aspect ratio */}
+            <img src={HERO_IMAGES[0]} alt="spacer" className="w-full h-auto invisible" aria-hidden="true" />
+
             {HERO_IMAGES.map((src, index) => (
                 <div
                     key={index}
                     className={cn(
-                        "absolute inset-0 transition-opacity duration-[1200ms] ease-in-out",
-                        index === currentSlide ? "opacity-100" : "opacity-0"
+                        "absolute inset-0 transition-opacity duration-1000 ease-in-out flex items-center justify-center",
+                        index === currentSlide ? "opacity-100 z-10" : "opacity-0 z-0 pointer-events-none"
                     )}
                 >
-                    <Image
-                        src={src}
-                        alt={`Hero Slide ${index + 1}`}
-                        fill
-                        className="object-contain"
-                        priority={index === 0}
-                        sizes="100vw"
-                    />
+                    <img src={src} alt={`Hero Slide ${index + 1}`} className="w-full h-full object-contain sm:object-cover" />
                 </div>
             ))}
 

@@ -21,6 +21,7 @@ export default async function StoryPage({ params }: PageProps) {
     return (
         <StoryDetail
             name={story.name}
+            image={story.image}
             role={story.role}
             company={story.company}
             quote={story.quote}
